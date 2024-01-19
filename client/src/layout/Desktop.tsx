@@ -9,7 +9,7 @@ const Desktop = () => {
         <Sidebar />
       </div>
       {/* chats */}
-      <div className='bg-purple-600 flex-[3]'>chats</div>
+      <div className='flex-[3]'>chats</div>
       {/* message area */}
       <div className='bg-blue-600 flex-[5]'>message area</div>
     </div>

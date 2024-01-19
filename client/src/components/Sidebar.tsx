@@ -35,7 +35,7 @@ const Sidebar = () => {
   >('message');
 
   return (
-    <div className='flex flex-col items-center justify-center h-screen p-4 border border-r-2 border-r-red-600'>
+    <div className='flex flex-col items-center justify-center h-screen p-4 border border-r-2 border-r-gray-600'>
       <div className='flex items-center justify-between flex-col h-full p-2'>
         <div className='flex items-center flex-col'>
           <img src={Logo} alt='Chatify Logo' />
