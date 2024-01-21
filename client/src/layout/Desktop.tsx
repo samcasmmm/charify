@@ -1,5 +1,5 @@
-import Sidebar from '@/components/Sidebar';
 import React from 'react';
+import { Sidebar, Chats } from '@/components';
 
 const Desktop = () => {
   return (
@@ -9,7 +9,9 @@ const Desktop = () => {
         <Sidebar />
       </div>
       {/* chats */}
-      <div className='flex-[3]'>chats</div>
+      <div className='flex-[3]'>
+        <Chats />
+      </div>
       {/* message area */}
       <div className='bg-blue-600 flex-[5]'>message area</div>
     </div>

@@ -51,7 +51,7 @@ const Sidebar = () => {
     <div className='flex flex-col items-center justify-center h-screen p-4 border border-r-[1px] border-r-gray-200 dark:border-r-gray-600 dark:bg-black20'>
       <div className='flex items-center justify-between flex-col h-full p-2'>
         <div className='flex items-center flex-col'>
-          <img src={Logo} alt='Chatify Logo' />
+          <img src={Logo} alt='Chatify Logo' className='' />
           <div className='flex items-center flex-col'>
             <IconsWrapper
               icons={<MessageCircleMore />}
@@ -84,11 +84,10 @@ const Sidebar = () => {
           <Switch
             checked={theme != 'light'}
             onCheckedChange={toggleTheme}
-            className='my-4'
+            className='my-4 data-[state=checked]:bg-blue-600'
           />
           <div className='overflow-hidden rounded-full w-16 h-16'>
             <img src={profile} alt='User Profile' />
-            SwitchSwitch
           </div>
         </div>
       </div>
