@@ -7,6 +7,7 @@ const Chats = () => {
       {/* search */}
       {/* archived */}
       {/* pinned */}
+      {/* all chats */}
     </div>
   );
 };
