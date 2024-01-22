@@ -1,13 +1,11 @@
-import { alpha, Theme } from '@mui/material/styles';
-
 type Direction = 'top' | 'right' | 'bottom' | 'left';
 
 function getDirection(value: Direction = 'bottom'): string {
   return {
-    top: 'to top',
-    right: 'to right',
-    bottom: 'to bottom',
-    left: 'to left',
+    top: 'to-top',
+    right: 'to-right',
+    bottom: 'to-bottom',
+    left: 'to-left',
   }[value];
 }
 
@@ -22,48 +20,34 @@ interface CssStylesProps {
 }
 
 interface CssStyles {
-  bgBlur: (props: CssStylesProps) => React.CSSProperties;
-  bgGradient: (props: CssStylesProps) => React.CSSProperties;
-  bgImage: (props: CssStylesProps) => React.CSSProperties;
+  bgBlur: (props: CssStylesProps) => string; // Modified return type to use Tailwind CSS classes
+  bgGradient: (props: CssStylesProps) => string; // Modified return type to use Tailwind CSS classes
+  bgImage: (props: CssStylesProps) => string; // Modified return type to use Tailwind CSS classes
 }
 
-export default function cssStyles(theme: Theme): CssStyles {
+export default function cssStyles(): CssStyles {
   return {
     bgBlur: (props: CssStylesProps) => {
-      const color =
-        props?.color || theme?.palette.background.default || '#000000';
+      const color = props?.color || 'bg-black';
       const blur = props?.blur || 6;
-      const opacity = props?.opacity || 0.8;
+      const opacity = props?.opacity || 80;
 
-      return {
-        backdropFilter: `blur(${blur}px)`,
-        WebkitBackdropFilter: `blur(${blur}px)`, // Fix on Mobile
-        backgroundColor: alpha(color, opacity),
-      };
+      return `backdrop-blur-${blur} ${color} bg-opacity-${opacity}`;
     },
     bgGradient: (props: CssStylesProps) => {
       const direction = getDirection(props?.direction);
-      const startColor = props?.startColor || `${alpha('#000000', 0)} 0%`;
-      const endColor = props?.endColor || '#000000 75%';
+      const startColor = props?.startColor || 'bg-opacity-0';
+      const endColor = props?.endColor || 'bg-black bg-opacity-75';
 
-      return {
-        background: `linear-gradient(${direction}, ${startColor}, ${endColor});`,
-      };
+      return `bg-gradient-to-${direction} from-${startColor} via-${startColor} to-${endColor}`;
     },
     bgImage: (props: CssStylesProps) => {
       const url = props?.url || '/assets/bg_gradient.jpg';
       const direction = getDirection(props?.direction);
-      const startColor =
-        props?.startColor || alpha(theme?.palette.grey[900] || '#000000', 0.88);
-      const endColor =
-        props?.endColor || alpha(theme?.palette.grey[900] || '#000000', 0.88);
+      const startColor = props?.startColor || 'bg-opacity-88';
+      const endColor = props?.endColor || 'bg-opacity-88';
 
-      return {
-        background: `linear-gradient(${direction}, ${startColor}, ${endColor}), url(${url})`,
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center center',
-      };
+      return `bg-gradient-to-${direction} from-${startColor} via-${startColor} to-${endColor} bg-cover bg-no-repeat bg-center`;
     },
   };
 }
