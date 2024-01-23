@@ -15,7 +15,7 @@ export const colorPresets: ColorPreset[] = [
   // DEFAULT
   {
     name: 'default',
-    ...palette.light.primary,
+    ...palette.grey,
   },
   // PURPLE
   {

@@ -4,8 +4,33 @@ function createGradient(color1: string, color2: string) {
   return `linear-gradient(to bottom, ${color1}, ${color2})`;
 }
 
+interface GreyPalette {
+  [key: string]: string | number | ((opacity: number) => string);
+}
+
+const GREY: GreyPalette = {
+  0: '#FFFFFF',
+  100: '#F9FAFB',
+  200: '#F4F6F8',
+  300: '#DFE3E8',
+  400: '#C4CDD5',
+  500: '#919EAB',
+  600: '#637381',
+  700: '#454F5B',
+  800: '#212B36',
+  900: '#161C24',
+  500_8: alpha('#919EAB', 0.08),
+  500_12: alpha('#919EAB', 0.12),
+  500_16: alpha('#919EAB', 0.16),
+  500_24: alpha('#919EAB', 0.24),
+  500_32: alpha('#919EAB', 0.32),
+  500_48: alpha('#919EAB', 0.48),
+  500_56: alpha('#919EAB', 0.56),
+  500_80: alpha('#919EAB', 0.8),
+};
+
 interface ColorPreset {
-  name: string;
+  name?: string;
   lighter: string;
   light: string;
   main: string;
@@ -56,7 +81,7 @@ const WARNING: ColorPreset = {
   main: '#FFC107',
   dark: '#B78103',
   darker: '#7A4F01',
-  contrastText: GREY[800],
+  contrastText: GREY[800] as string,
 };
 
 const ERROR: ColorPreset = {
@@ -66,31 +91,6 @@ const ERROR: ColorPreset = {
   dark: '#B72136',
   darker: '#7A0C2E',
   contrastText: '#fff',
-};
-
-interface GreyPalette {
-  [key: string]: string | number | ((opacity: number) => string);
-}
-
-const GREY: GreyPalette = {
-  0: '#FFFFFF',
-  100: '#F9FAFB',
-  200: '#F4F6F8',
-  300: '#DFE3E8',
-  400: '#C4CDD5',
-  500: '#919EAB',
-  600: '#637381',
-  700: '#454F5B',
-  800: '#212B36',
-  900: '#161C24',
-  500_8: alpha('#919EAB', 0.08),
-  500_12: alpha('#919EAB', 0.12),
-  500_16: alpha('#919EAB', 0.16),
-  500_24: alpha('#919EAB', 0.24),
-  500_32: alpha('#919EAB', 0.32),
-  500_48: alpha('#919EAB', 0.48),
-  500_56: alpha('#919EAB', 0.56),
-  500_80: alpha('#919EAB', 0.8),
 };
 
 interface Gradients {
@@ -153,19 +153,19 @@ const COMMON: CommonPalette = {
   primary: { ...PRIMARY, contrastText: '#fff' },
   secondary: { ...SECONDARY, contrastText: '#fff' },
   info: { ...INFO, contrastText: '#fff' },
-  success: { ...SUCCESS, contrastText: GREY[800] },
-  warning: { ...WARNING, contrastText: GREY[800] },
+  success: { ...SUCCESS, contrastText: GREY[800] as string },
+  warning: { ...WARNING, contrastText: GREY[800] as string },
   error: { ...ERROR, contrastText: '#fff' },
   grey: GREY,
   gradients: GRADIENTS,
   chart: CHART_COLORS,
-  divider: GREY[500_24],
+  divider: GREY[500_24] as string,
   action: {
-    hover: GREY[500_8],
-    selected: GREY[500_16],
-    disabled: GREY[500_80],
-    disabledBackground: GREY[500_24],
-    focus: GREY[500_24],
+    hover: GREY[500_8] as string,
+    selected: GREY[500_16] as string,
+    disabled: GREY[500_80] as string,
+    disabledBackground: GREY[500_24] as string,
+    focus: GREY[500_24] as string,
     hoverOpacity: 0.08,
     disabledOpacity: 0.48,
   },
