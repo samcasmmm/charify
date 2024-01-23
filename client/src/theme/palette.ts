@@ -1,56 +1,78 @@
 import { alpha } from '@mui/material/styles';
 
-// ----------------------------------------------------------------------
-
-function createGradient(color1, color2) {
+function createGradient(color1: string, color2: string) {
   return `linear-gradient(to bottom, ${color1}, ${color2})`;
 }
 
-// SETUP COLORS
-const PRIMARY = {
+interface ColorPreset {
+  name: string;
+  lighter: string;
+  light: string;
+  main: string;
+  dark: string;
+  darker: string;
+  contrastText: string;
+}
+
+const PRIMARY: ColorPreset = {
   lighter: '#C8FACD',
   light: '#5BE584',
   main: '#0162C4',
   dark: '#007B55',
   darker: '#005249',
+  contrastText: '#fff',
 };
-const SECONDARY = {
+
+const SECONDARY: ColorPreset = {
   lighter: '#D6E4FF',
   light: '#84A9FF',
   main: '#3366FF',
   dark: '#1939B7',
   darker: '#091A7A',
+  contrastText: '#fff',
 };
-const INFO = {
+
+const INFO: ColorPreset = {
   lighter: '#D0F2FF',
   light: '#74CAFF',
   main: '#1890FF',
   dark: '#0C53B7',
   darker: '#04297A',
+  contrastText: PRIMARY.contrastText,
 };
-const SUCCESS = {
+
+const SUCCESS: ColorPreset = {
   lighter: '#E9FCD4',
   light: '#AAF27F',
   main: '#54D62C',
   dark: '#229A16',
   darker: '#08660D',
+  contrastText: PRIMARY.contrastText,
 };
-const WARNING = {
+
+const WARNING: ColorPreset = {
   lighter: '#FFF7CD',
   light: '#FFE16A',
   main: '#FFC107',
   dark: '#B78103',
   darker: '#7A4F01',
+  contrastText: GREY[800],
 };
-const ERROR = {
+
+const ERROR: ColorPreset = {
   lighter: '#FFE7D9',
   light: '#FFA48D',
   main: '#FF4842',
   dark: '#B72136',
   darker: '#7A0C2E',
+  contrastText: '#fff',
 };
 
-const GREY = {
+interface GreyPalette {
+  [key: string]: string | number | ((opacity: number) => string);
+}
+
+const GREY: GreyPalette = {
   0: '#FFFFFF',
   100: '#F9FAFB',
   200: '#F4F6F8',
@@ -71,7 +93,15 @@ const GREY = {
   500_80: alpha('#919EAB', 0.8),
 };
 
-const GRADIENTS = {
+interface Gradients {
+  primary: string;
+  info: string;
+  success: string;
+  warning: string;
+  error: string;
+}
+
+const GRADIENTS: Gradients = {
   primary: createGradient(PRIMARY.light, PRIMARY.main),
   info: createGradient(INFO.light, INFO.main),
   success: createGradient(SUCCESS.light, SUCCESS.main),
@@ -79,7 +109,15 @@ const GRADIENTS = {
   error: createGradient(ERROR.light, ERROR.main),
 };
 
-const CHART_COLORS = {
+interface ChartColors {
+  violet: string[];
+  blue: string[];
+  green: string[];
+  yellow: string[];
+  red: string[];
+}
+
+const CHART_COLORS: ChartColors = {
   violet: ['#826AF9', '#9E86FF', '#D0AEFF', '#F7D2FF'],
   blue: ['#2D99FF', '#83CFFF', '#A5F3FF', '#CCFAFF'],
   green: ['#2CD9C5', '#60F1C8', '#A4F7CC', '#C0F2DC'],
@@ -87,7 +125,30 @@ const CHART_COLORS = {
   red: ['#FF6C40', '#FF8F6D', '#FFBD98', '#FFF2D4'],
 };
 
-const COMMON = {
+interface CommonPalette {
+  common: { black: string; white: string };
+  primary: ColorPreset;
+  secondary: ColorPreset;
+  info: ColorPreset;
+  success: ColorPreset;
+  warning: ColorPreset;
+  error: ColorPreset;
+  grey: GreyPalette;
+  gradients: Gradients;
+  chart: ChartColors;
+  divider: string;
+  action: {
+    hover: string;
+    selected: string;
+    disabled: string;
+    disabledBackground: string;
+    focus: string;
+    hoverOpacity: number;
+    disabledOpacity: number;
+  };
+}
+
+const COMMON: CommonPalette = {
   common: { black: '#000', white: '#fff' },
   primary: { ...PRIMARY, contrastText: '#fff' },
   secondary: { ...SECONDARY, contrastText: '#fff' },
@@ -110,21 +171,4 @@ const COMMON = {
   },
 };
 
-const palette = {
-  light: {
-    ...COMMON,
-    mode: 'light',
-    text: { primary: GREY[800], secondary: GREY[600], disabled: GREY[500] },
-    background: { paper: '#fff', default: '#fff', neutral: GREY[200] },
-    action: { active: GREY[600], ...COMMON.action },
-  },
-  dark: {
-    ...COMMON,
-    mode: 'dark',
-    text: { primary: '#fff', secondary: GREY[500], disabled: GREY[600] },
-    background: { paper: GREY[800], default: GREY[900], neutral: GREY[500_16] },
-    action: { active: GREY[500], ...COMMON.action },
-  },
-};
-
-export default palette;
+export default COMMON;
