@@ -1,19 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App.tsx';
-import { Provider } from 'react-redux';
-import Store from '@/app/store.ts';
 import { BrowserRouter } from 'react-router-dom';
-import { ThemeProvider } from '@/hooks/useThemeMode.tsx';
+import { HelmetProvider } from 'react-helmet-async';
+import App from './App';
+
+import SettingsProvider from './contexts/SettingsContext';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Provider store={Store}>
-        <ThemeProvider defaultTheme='dark' storageKey='vite-ui-theme'>
+    <HelmetProvider>
+      <SettingsProvider>
+        <BrowserRouter>
           <App />
-        </ThemeProvider>
-      </Provider>
-    </BrowserRouter>
+        </BrowserRouter>
+      </SettingsProvider>
+    </HelmetProvider>
   </React.StrictMode>
 );
