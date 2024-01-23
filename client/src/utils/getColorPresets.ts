@@ -12,12 +12,10 @@ interface ColorPreset {
 }
 
 export const colorPresets: ColorPreset[] = [
-  // DEFAULT
   {
     name: 'default',
-    ...palette.grey,
+    ...palette.light.primary,
   },
-  // PURPLE
   {
     name: 'purple',
     lighter: '#EBD6FD',
@@ -27,7 +25,6 @@ export const colorPresets: ColorPreset[] = [
     darker: '#200A69',
     contrastText: '#fff',
   },
-  // CYAN
   {
     name: 'cyan',
     lighter: '#D1FFFC',
@@ -35,9 +32,8 @@ export const colorPresets: ColorPreset[] = [
     main: '#1CCAFF',
     dark: '#0E77B7',
     darker: '#053D7A',
-    contrastText: palette.light.grey[800],
+    contrastText: palette.light.grey[800] as string,
   },
-  // BLUE
   {
     name: 'blue',
     lighter: '#D1E9FC',
@@ -47,7 +43,6 @@ export const colorPresets: ColorPreset[] = [
     darker: '#061B64',
     contrastText: '#fff',
   },
-  // ORANGE
   {
     name: 'orange',
     lighter: '#FEF4D4',
@@ -55,9 +50,8 @@ export const colorPresets: ColorPreset[] = [
     main: '#fda92d',
     dark: '#B66816',
     darker: '#793908',
-    contrastText: palette.light.grey[800],
+    contrastText: palette.light.grey[800] as string,
   },
-  // RED
   {
     name: 'red',
     lighter: '#FFE3D5',
@@ -77,12 +71,14 @@ export const orangePreset: ColorPreset = colorPresets[4];
 export const redPreset: ColorPreset = colorPresets[5];
 
 export function getColorPresets(presetsKey: string): ColorPreset {
-  return {
+  const presetsMap: Record<string, ColorPreset> = {
     purple: purplePreset,
     cyan: cyanPreset,
     blue: bluePreset,
     orange: orangePreset,
     red: redPreset,
     default: defaultPreset,
-  }[presetsKey];
+  };
+
+  return presetsMap[presetsKey] || defaultPreset;
 }
