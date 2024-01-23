@@ -1,7 +1,6 @@
 import React, { createContext, FC, ReactNode, useEffect } from 'react';
 import useLocalStorage from '../hooks/useLocalStorage';
 import { getColorPresets, colorPresets } from '../utils/getColorPresets';
-
 interface Settings {
   themeMode: string;
   themeLayout: string;
@@ -175,8 +174,8 @@ const SettingsProvider: FC<SettingsProviderProps> = ({ children }) => {
         onChangeColor,
         onToggleStretch,
         onResetSetting,
-        setColor: getColorPresets(settings.themeColorPresets),
-        colorOption: colorPresets.map((color: any) => ({
+        setColor: (preset: string) => getColorPresets(preset),
+        colorOption: colorPresets.map((color) => ({
           name: color.name,
           value: color.main,
         })),
