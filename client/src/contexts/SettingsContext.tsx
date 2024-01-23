@@ -1,9 +1,6 @@
 import React, { createContext, FC, ReactNode, useEffect } from 'react';
 import useLocalStorage from '../hooks/useLocalStorage';
-import getColorPresets, {
-  defaultPreset,
-  colorPresets,
-} from '../utils/getColorPresets';
+import { getColorPresets, colorPresets } from '../utils/getColorPresets';
 
 interface Settings {
   themeMode: string;
