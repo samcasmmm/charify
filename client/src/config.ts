@@ -1,8 +1,6 @@
-// @mui
 import { enUS, frFR, zhCN, viVN, arSD, Locale } from '@mui/material/locale';
 
-// routes
-import { PATH_DASHBOARD } from './routes/paths';
+import { PATH_DASHBOARD } from './routes/';
 
 export interface Settings {
   themeMode: 'light' | 'dark';
@@ -71,7 +69,5 @@ export const allLangs: Language[] = [
   },
 ];
 
-export const defaultLang: Language = allLangs[0]; // English
-
-// DEFAULT ROOT PATH
-export const DEFAULT_PATH: string = PATH_DASHBOARD.general.app; // as '/app'
+export const defaultLang: Language = allLangs[0];
+export const DEFAULT_PATH: string = PATH_DASHBOARD.general.app;
