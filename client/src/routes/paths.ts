@@ -1,21 +1,12 @@
-interface Breakpoints {
-  values: {
-    xs: number;
-    sm: number;
-    md: number;
-    lg: number;
-    xl: number;
-  };
+function path(root: string, sublink: string): string {
+  return `${root}${sublink}`;
 }
 
-const breakpoints: Breakpoints = {
-  values: {
-    xs: 0,
-    sm: 600,
-    md: 900,
-    lg: 1200,
-    xl: 1536,
+const ROOTS_DASHBOARD: string = '/';
+
+export const PATH_DASHBOARD: { root: string; general: { app: string } } = {
+  root: ROOTS_DASHBOARD,
+  general: {
+    app: path(ROOTS_DASHBOARD, 'app'),
   },
 };
-
-export default breakpoints;

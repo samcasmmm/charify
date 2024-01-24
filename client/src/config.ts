@@ -1,6 +1,12 @@
-import { enUS, frFR, zhCN, viVN, arSD, Locale } from '@mui/material/locale';
-
-import { PATH_DASHBOARD } from './routes/';
+import {
+  enUS,
+  frFR,
+  zhCN,
+  viVN,
+  arSD,
+  Localization,
+} from '@mui/material/locale';
+import { PATH_DASHBOARD } from './routes/paths';
 
 export interface Settings {
   themeMode: 'light' | 'dark';
@@ -32,7 +38,7 @@ export const NAVBAR = {
 export interface Language {
   label: string;
   value: string;
-  systemValue: Locale;
+  systemValue: Localization;
   icon: string;
 }
 
