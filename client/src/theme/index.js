@@ -16,7 +16,6 @@ import breakpoints from "./breakpoints";
 import componentsOverride from "./overrides";
 import shadows, { customShadows } from "./shadows";
 
-// ----------------------------------------------------------------------
 
 ThemeProvider.propTypes = {
   children: PropTypes.node,
