@@ -1,4 +1,4 @@
-interface TransitionProps {
+export interface TransitionProps {
   duration?: number;
   ease?: [number, number, number, number];
 }

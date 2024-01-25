@@ -1,6 +1,6 @@
-import { varTranEnter, varTranExit } from './transition';
+import { varTranEnter, varTranExit, TransitionProps } from './transition';
 
-interface FadeProps {
+interface FadeProps extends TransitionProps {
   distance?: number;
   durationIn?: number;
   durationOut?: number;
@@ -27,12 +27,12 @@ export const varFade = (props: FadeProps) => {
       animate: {
         y: 0,
         opacity: 1,
-        transition: varTranEnter({ durationIn, easeIn }),
+        transition: varTranEnter({ duration: durationIn, ease: easeIn }),
       },
       exit: {
         y: distance,
         opacity: 0,
-        transition: varTranExit({ durationOut, easeOut }),
+        transition: varTranExit({ duration: durationOut, ease: easeOut }),
       },
     },
     inDown: {
@@ -40,12 +40,12 @@ export const varFade = (props: FadeProps) => {
       animate: {
         y: 0,
         opacity: 1,
-        transition: varTranEnter({ durationIn, easeIn }),
+        transition: varTranEnter({ duration: durationIn, ease: easeIn }),
       },
       exit: {
         y: -distance,
         opacity: 0,
-        transition: varTranExit({ durationOut, easeOut }),
+        transition: varTranExit({ duration: durationOut, ease: easeOut }),
       },
     },
     inLeft: {
@@ -53,12 +53,12 @@ export const varFade = (props: FadeProps) => {
       animate: {
         x: 0,
         opacity: 1,
-        transition: varTranEnter({ durationIn, easeIn }),
+        transition: varTranEnter({ duration: durationIn, ease: easeIn }),
       },
       exit: {
         x: -distance,
         opacity: 0,
-        transition: varTranExit({ durationOut, easeOut }),
+        transition: varTranExit({ duration: durationOut, ease: easeOut }),
       },
     },
     inRight: {
@@ -66,32 +66,38 @@ export const varFade = (props: FadeProps) => {
       animate: {
         x: 0,
         opacity: 1,
-        transition: varTranEnter({ durationIn, easeIn }),
+        transition: varTranEnter({ duration: durationIn, ease: easeIn }),
       },
       exit: {
         x: distance,
         opacity: 0,
-        transition: varTranExit({ durationOut, easeOut }),
+        transition: varTranExit({ duration: durationOut, ease: easeOut }),
       },
     },
 
     // OUT
     out: {
       initial: { opacity: 1 },
-      animate: { opacity: 0, transition: varTranEnter({ durationIn, easeIn }) },
-      exit: { opacity: 1, transition: varTranExit({ durationOut, easeOut }) },
+      animate: {
+        opacity: 0,
+        transition: varTranEnter({ duration: durationIn, ease: easeIn }),
+      },
+      exit: {
+        opacity: 1,
+        transition: varTranExit({ duration: durationOut, ease: easeOut }),
+      },
     },
     outUp: {
       initial: { y: 0, opacity: 1 },
       animate: {
         y: -distance,
         opacity: 0,
-        transition: varTranEnter({ durationIn, easeIn }),
+        transition: varTranEnter({ duration: durationIn, ease: easeIn }),
       },
       exit: {
         y: 0,
         opacity: 1,
-        transition: varTranExit({ durationOut, easeOut }),
+        transition: varTranExit({ duration: durationOut, ease: easeOut }),
       },
     },
     outDown: {
@@ -99,12 +105,12 @@ export const varFade = (props: FadeProps) => {
       animate: {
         y: distance,
         opacity: 0,
-        transition: varTranEnter({ durationIn, easeIn }),
+        transition: varTranEnter({ duration: durationIn, ease: easeIn }),
       },
       exit: {
         y: 0,
         opacity: 1,
-        transition: varTranExit({ durationOut, easeOut }),
+        transition: varTranExit({ duration: durationOut, ease: easeOut }),
       },
     },
     outLeft: {
@@ -112,12 +118,12 @@ export const varFade = (props: FadeProps) => {
       animate: {
         x: -distance,
         opacity: 0,
-        transition: varTranEnter({ durationIn, easeIn }),
+        transition: varTranEnter({ duration: durationIn, ease: easeIn }),
       },
       exit: {
         x: 0,
         opacity: 1,
-        transition: varTranExit({ durationOut, easeOut }),
+        transition: varTranExit({ duration: durationOut, ease: easeOut }),
       },
     },
     outRight: {
@@ -125,12 +131,12 @@ export const varFade = (props: FadeProps) => {
       animate: {
         x: distance,
         opacity: 0,
-        transition: varTranEnter({ durationIn, easeIn }),
+        transition: varTranEnter({ duration: durationIn, ease: easeIn }),
       },
       exit: {
         x: 0,
         opacity: 1,
-        transition: varTranExit({ durationOut, easeOut }),
+        transition: varTranExit({ duration: durationOut, ease: easeOut }),
       },
     },
   };
