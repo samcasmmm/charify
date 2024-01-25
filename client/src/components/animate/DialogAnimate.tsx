@@ -9,7 +9,7 @@ interface DialogAnimateProps {
   onClose?: () => void;
   children: React.ReactNode;
   sx?: React.CSSProperties;
-  variants?: Record<string, any>; // Adjust the type according to your variants
+  variants?: Record<string, any>;
 }
 
 const DialogAnimate: FC<DialogAnimateProps> = ({
