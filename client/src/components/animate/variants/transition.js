@@ -1,4 +1,3 @@
-// ----------------------------------------------------------------------
 
 export const varTranHover = (props) => {
   const duration = props?.duration || 0.32;
