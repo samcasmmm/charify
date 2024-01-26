@@ -1,11 +1,9 @@
 import PropTypes from 'prop-types';
 import { m } from 'framer-motion';
 import { forwardRef } from 'react';
-// @mui
 import { useTheme } from '@mui/material/styles';
 import { Box, Fab } from '@mui/material';
 
-// ----------------------------------------------------------------------
 
 const FabButtonAnimate = forwardRef(({ color = 'primary', size = 'large', children, sx, sxWrap, ...other }, ref) => {
   const theme = useTheme();
