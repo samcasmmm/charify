@@ -54,7 +54,7 @@ const FabButtonAnimate = forwardRef<HTMLButtonElement, FabButtonAnimateProps>(
           ref={ref}
           size={size}
           sx={{
-            boxShadow: theme.customShadows[color],
+            boxShadow: 'inherit',
             color: theme.palette[color].contrastText,
             bgcolor: theme.palette[color].main,
             '&:hover': {
