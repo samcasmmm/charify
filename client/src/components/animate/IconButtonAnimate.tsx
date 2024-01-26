@@ -1,7 +1,7 @@
 import React from 'react';
+import PropTypes, { Validator } from 'prop-types';
 import { motion as m } from 'framer-motion';
 import { forwardRef } from 'react';
-import PropTypes, { Validator } from 'prop-types';
 import { Box, IconButton } from '@mui/material';
 
 interface IconButtonAnimateProps {
@@ -40,7 +40,7 @@ IconButtonAnimate.propTypes = {
     'warning',
     'error',
   ]),
-  size: PropTypes.oneOf(['small', 'medium', 'large']).isRequired as Validator<
+  size: PropTypes.oneOf(['small', 'medium', 'large']) as Validator<
     'small' | 'medium' | 'large'
   >,
 };
@@ -50,10 +50,6 @@ export default IconButtonAnimate;
 interface AnimateWrapProps {
   size: 'small' | 'medium' | 'large';
   children: React.ReactNode;
-}
-
-interface BoxSxProps {
-  display: string;
 }
 
 const varSmall = {
@@ -81,11 +77,9 @@ const AnimateWrap: React.FC<AnimateWrapProps> = ({ size, children }) => {
       whileTap='tap'
       whileHover='hover'
       variants={(isSmall && varSmall) || (isLarge && varLarge) || varMedium}
-      sx={
-        {
-          display: 'inline-flex',
-        } as BoxSxProps
-      } // Cast to BoxSxProps
+      sx={{
+        display: 'inline-flex',
+      }}
     >
       {children}
     </Box>
@@ -94,5 +88,7 @@ const AnimateWrap: React.FC<AnimateWrapProps> = ({ size, children }) => {
 
 AnimateWrap.propTypes = {
   children: PropTypes.node.isRequired,
-  size: PropTypes.oneOf(['small', 'medium', 'large']).isRequired,
+  size: PropTypes.oneOf(['small', 'medium', 'large']) as Validator<
+    'small' | 'medium' | 'large'
+  >,
 };
