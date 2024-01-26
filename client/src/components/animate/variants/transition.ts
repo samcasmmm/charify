@@ -3,7 +3,7 @@ export interface TransitionProps {
   durationIn?: number | undefined;
   durationOut?: number | undefined;
   easeIn?: number[] | undefined;
-  ease?: [number, number, number, number];
+  ease?: string | number | [number, number, number, number] | undefined;
   easeOut?: number[] | undefined;
 }
 
