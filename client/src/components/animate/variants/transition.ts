@@ -1,10 +1,17 @@
+type EaseType = string | number | [number, number, number, number];
+
 export interface TransitionProps {
   duration?: number;
   durationIn?: number | undefined;
   durationOut?: number | undefined;
-  easeIn?: number[] | undefined;
-  ease?: string | number | [number, number, number, number] | undefined;
-  easeOut?: number[] | undefined;
+  easeIn?: number[] | EaseType | undefined;
+  ease?:
+    | string
+    | number
+    | [number, number, number, number]
+    | undefined
+    | EaseType;
+  easeOut?: number[] | EaseType | undefined;
 }
 
 export const varTranHover = (props?: TransitionProps) => {
