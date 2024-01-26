@@ -1,6 +1,6 @@
 import { varTranEnter, varTranExit, TransitionProps } from './transition';
 
-interface FadeProps extends TransitionProps {
+export interface FadeProps extends TransitionProps {
   distance?: number;
   durationIn?: number;
   durationOut?: number;

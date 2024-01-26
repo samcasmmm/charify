@@ -1,10 +1,85 @@
 import { pxToRem, responsiveFontSizes } from '../utils/getFontValue';
 
+const FONT_PRIMARY = 'Manrope, Public Sans, sans-serif';
 
-const FONT_PRIMARY = 'Manrope, Public Sans, sans-serif'; // Google Font
-// const FONT_SECONDARY = 'CircularStd, sans-serif'; // Local Font
+interface Typography {
+  fontFamily: string;
+  fontWeightRegular: number;
+  fontWeightMedium: number;
+  fontWeightBold: number;
+  h1: {
+    fontWeight: number;
+    lineHeight: number;
+    fontSize: string;
+    letterSpacing: number;
+  };
+  h2: {
+    fontWeight: number;
+    lineHeight: number;
+    fontSize: string;
+  };
+  h3: {
+    fontWeight: number;
+    lineHeight: number;
+    fontSize: string;
+  };
+  h4: {
+    fontWeight: number;
+    lineHeight: number;
+    fontSize: string;
+  };
+  h5: {
+    fontWeight: number;
+    lineHeight: number;
+    fontSize: string;
+  };
+  h6: {
+    fontWeight: number;
+    lineHeight: number;
+    fontSize: string;
+  };
+  subtitle1: {
+    fontWeight: number;
+    lineHeight: number;
+    fontSize: string;
+  };
+  subtitle2: {
+    fontWeight: number;
+    lineHeight: number;
+    fontSize: string;
+  };
+  body1: {
+    lineHeight: number;
+    fontSize: string;
+  };
+  body2: {
+    lineHeight: number;
+    fontSize: string;
+    fontWeight: number;
+  };
+  caption: {
+    lineHeight: number;
+    fontSize: string;
+    fontWeight: number;
+  };
+  overline: {
+    fontWeight: number;
+    lineHeight: number;
+    fontSize: string;
+    textTransform: string;
+  };
+  button: {
+    fontWeight: number;
+    lineHeight: number;
+    fontSize: string;
+    textTransform: string;
+  };
+  article: {
+    fontWeight: number;
+  };
+}
 
-const typography = {
+const typography: Typography = {
   fontFamily: FONT_PRIMARY,
   fontWeightRegular: 400,
   fontWeightMedium: 600,
@@ -84,7 +159,7 @@ const typography = {
   },
   article: {
     fontWeight: 700,
-  }
+  },
 };
 
 export default typography;

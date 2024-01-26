@@ -4,7 +4,6 @@ import { ThemeProvider, createTheme, useTheme } from '@mui/material/styles';
 // hooks
 import useLocales from '../../hooks/useLocales';
 
-// ----------------------------------------------------------------------
 
 ThemeLocalization.propTypes = {
   children: PropTypes.node.isRequired,

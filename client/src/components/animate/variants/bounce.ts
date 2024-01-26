@@ -1,8 +1,13 @@
-import { varTranEnter, varTranExit } from './transition';
+import { varTranEnter, varTranExit, TransitionProps } from './transition';
 
-// ----------------------------------------------------------------------
+interface BounceProps {
+  durationIn?: number;
+  durationOut?: number;
+  easeIn?: number[];
+  easeOut?: number[];
+}
 
-export const varBounce = (props) => {
+export const varBounce = (props?: BounceProps) => {
   const durationIn = props?.durationIn;
   const durationOut = props?.durationOut;
   const easeIn = props?.easeIn;
@@ -28,7 +33,9 @@ export const varBounce = (props) => {
         y: [720, -24, 12, -4, 0],
         scaleY: [4, 0.9, 0.95, 0.985, 1],
         opacity: [0, 1, 1, 1, 1],
-        transition: { ...varTranEnter({ durationIn, easeIn }) },
+        transition: {
+          ...(varTranEnter({ durationIn, easeIn }) as TransitionProps),
+        },
       },
       exit: {
         y: [12, -24, 720],
@@ -88,10 +95,18 @@ export const varBounce = (props) => {
       animate: { scale: [0.9, 1.1, 0.3], opacity: [1, 1, 0] },
     },
     outUp: {
-      animate: { y: [-12, 24, -720], scaleY: [0.985, 0.9, 3], opacity: [1, 1, 0] },
+      animate: {
+        y: [-12, 24, -720],
+        scaleY: [0.985, 0.9, 3],
+        opacity: [1, 1, 0],
+      },
     },
     outDown: {
-      animate: { y: [12, -24, 720], scaleY: [0.985, 0.9, 3], opacity: [1, 1, 0] },
+      animate: {
+        y: [12, -24, 720],
+        scaleY: [0.985, 0.9, 3],
+        opacity: [1, 1, 0],
+      },
     },
     outLeft: {
       animate: { x: [0, 24, -720], scaleX: [1, 0.9, 2], opacity: [1, 1, 0] },

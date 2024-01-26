@@ -7,8 +7,6 @@ import ThemeRtlLayout from './ThemeRtlLayout';
 import ThemeColorPresets from './ThemeColorPresets';
 import ThemeLocalization from './ThemeLocalization';
 
-// ----------------------------------------------------------------------
-
 ThemeSettings.propTypes = {
   children: PropTypes.node.isRequired,
 };

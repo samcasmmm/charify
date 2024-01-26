@@ -1,19 +1,27 @@
 import PropTypes from 'prop-types';
 import { m } from 'framer-motion';
-// @mui
-import { Box } from '@mui/material';
-//
+import { Box, SxProps } from '@mui/material';
 import { varContainer } from './variants';
 
-// ----------------------------------------------------------------------
+interface MotionContainerProps {
+  action?: boolean;
+  animate?: boolean;
+  children: React.ReactNode;
+  sx?: SxProps;
+}
 
 MotionContainer.propTypes = {
   action: PropTypes.bool,
   animate: PropTypes.bool,
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };
 
-export default function MotionContainer({ animate, action = false, children, ...other }) {
+export default function MotionContainer({
+  animate,
+  action = false,
+  children,
+  ...other
+}: MotionContainerProps) {
   if (action) {
     return (
       <Box
@@ -29,7 +37,14 @@ export default function MotionContainer({ animate, action = false, children, ...
   }
 
   return (
-    <Box component={m.div} initial="initial" animate="animate" exit="exit" variants={varContainer()} {...other}>
+    <Box
+      component={m.div}
+      initial='initial'
+      animate='animate'
+      exit='exit'
+      variants={varContainer()}
+      {...other}
+    >
       {children}
     </Box>
   );

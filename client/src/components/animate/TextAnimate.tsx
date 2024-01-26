@@ -1,19 +1,26 @@
 import PropTypes from 'prop-types';
-import { m } from 'framer-motion';
-// @mui
-import { Box } from '@mui/material';
-//
+import { m, Variants } from 'framer-motion';
+import { Box, SxProps } from '@mui/system';
 import { varFade } from './variants';
 
-// ----------------------------------------------------------------------
+interface TextAnimateProps {
+  text: string;
+  variants?: Variants;
+  sx?: SxProps;
+}
 
 TextAnimate.propTypes = {
   text: PropTypes.string.isRequired,
   variants: PropTypes.object,
-  sx: PropTypes.object
+  sx: PropTypes.object,
 };
 
-export default function TextAnimate({ text, variants, sx, ...other }) {
+export default function TextAnimate({
+  text,
+  variants,
+  sx,
+  ...other
+}: TextAnimateProps) {
   return (
     <Box
       component={m.h1}
@@ -21,12 +28,12 @@ export default function TextAnimate({ text, variants, sx, ...other }) {
         typography: 'h1',
         overflow: 'hidden',
         display: 'inline-flex',
-        ...sx
+        ...sx,
       }}
       {...other}
     >
       {text.split('').map((letter, index) => (
-        <m.span key={index} variants={variants || varFade().inUp}>
+        <m.span key={index} variants={variants || (varFade({}) as Variants)}>
           {letter}
         </m.span>
       ))}
