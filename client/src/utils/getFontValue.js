@@ -3,7 +3,6 @@ import { useTheme } from '@mui/material/styles';
 // hooks
 import useResponsive from '../hooks/useResponsive';
 
-// ----------------------------------------------------------------------
 
 export default function GetFontValue(variant) {
   const theme = useTheme();
