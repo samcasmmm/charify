@@ -1,17 +1,25 @@
+import React, { ReactNode } from 'react';
 import PropTypes from 'prop-types';
 import { LazyMotion } from 'framer-motion';
 
-// eslint-disable-next-line import/extensions
 const loadFeatures = () => import('./features.js').then((res) => res.default);
 
-MotionLazyContainer.propTypes = {
-  children: PropTypes.node,
-};
+interface MotionLazyContainerProps {
+  children?: ReactNode;
+}
 
-export default function MotionLazyContainer({ children }) {
+const MotionLazyContainer: React.FC<MotionLazyContainerProps> = ({
+  children,
+}) => {
   return (
     <LazyMotion strict features={loadFeatures}>
       {children}
     </LazyMotion>
   );
-}
+};
+
+MotionLazyContainer.propTypes = {
+  children: PropTypes.node,
+};
+
+export default MotionLazyContainer;
