@@ -19,7 +19,6 @@ const BoxStyle = styled(CardActionArea)(({ theme }) => ({
   borderRadius: Number(theme.shape.borderRadius) * 1.25,
 }));
 
-// ----------------------------------------------------------------------
 
 export default function SettingContrast() {
   const { themeContrast, onChangeContrast } = useSettings();
