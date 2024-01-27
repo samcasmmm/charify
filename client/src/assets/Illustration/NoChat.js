@@ -3,6 +3,7 @@ import { memo } from "react";
 import { useTheme } from "@mui/material/styles";
 import { Box } from "@mui/material";
 
+// ----------------------------------------------------------------------
 
 function NoChat({ ...other }) {
   const theme = useTheme();
