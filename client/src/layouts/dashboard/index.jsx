@@ -70,7 +70,7 @@ const DashboardLayout = () => {
             <Box
               sx={{
                 backgroundColor: `${
-                  4 === selected && theme.palette.primary.main
+                  3 === selected && theme.palette.primary.main
                 }`,
                 borderRadius: 1.5,
               }}
@@ -78,9 +78,9 @@ const DashboardLayout = () => {
               <IconButton
                 sx={{
                   width: 'max-content',
-                  color: `${4 === selected ? '#fff' : '#000'}`,
+                  color: `${3 === selected ? '#fff' : '#000'}`,
                 }}
-                onClick={() => setSelected(4)}
+                onClick={() => setSelected(3)}
               >
                 <Gear />
               </IconButton>
