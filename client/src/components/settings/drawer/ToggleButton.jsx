@@ -1,14 +1,10 @@
 import PropTypes from 'prop-types';
-// @mui
 import { alpha, styled } from '@mui/material/styles';
 import { Tooltip } from '@mui/material';
-// utils
 import cssStyles from '../../../utils/cssStyles';
-//
 import Iconify from '../../Iconify';
 import { IconButtonAnimate } from '../../animate';
 
-// ----------------------------------------------------------------------
 
 const RootStyle = styled('span')(({ theme }) => ({
   ...cssStyles(theme).bgBlur({ opacity: 0.64 }),

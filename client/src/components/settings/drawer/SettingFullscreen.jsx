@@ -5,7 +5,6 @@ import { Button } from '@mui/material';
 //
 import Iconify from '../../Iconify';
 
-// ----------------------------------------------------------------------
 
 export default function SettingFullscreen() {
   const [fullscreen, setFullscreen] = useState(false);

@@ -7,7 +7,6 @@ import useSettings from '../../../hooks/useSettings';
 import Iconify from '../../Iconify';
 import BoxMask from './BoxMask';
 
-// ----------------------------------------------------------------------
 
 const BoxStyle = styled(CardActionArea)(({ theme }) => ({
   height: 72,
@@ -19,7 +18,6 @@ const BoxStyle = styled(CardActionArea)(({ theme }) => ({
   borderRadius: Number(theme.shape.borderRadius) * 1.25,
 }));
 
-// ----------------------------------------------------------------------
 
 export default function SettingContrast() {
   const { themeContrast, onChangeContrast } = useSettings();
