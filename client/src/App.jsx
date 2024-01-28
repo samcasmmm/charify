@@ -1,16 +1,14 @@
-// routes
-import Router from "./routes";
-// theme
+import Router from './routes';
+import './App.css';
 import ThemeProvider from './theme';
-// components
 import ThemeSettings from './components/settings';
 
 function App() {
   return (
     <ThemeProvider>
       <ThemeSettings>
-        {" "}
-        <Router />{" "}
+        {' '}
+        <Router />{' '}
       </ThemeSettings>
     </ThemeProvider>
   );

@@ -1,53 +1,39 @@
-import React, { Suspense, lazy } from "react";
-import { Navigate, useRoutes } from "react-router-dom";
-import DashboardLayout from "../layouts/dashboard";
-import { DEFAULT_PATH } from "../config";
-import LoadingScreen from "../components/LoadingScreen";
+import { Suspense, lazy } from 'react';
+import { Navigate, useRoutes } from 'react-router-dom';
 
-const Loadable = (Component) => (props) => (
-  <Suspense fallback={<LoadingScreen />}>
-    <Component {...props} />
-  </Suspense>
-);
+// layouts
+import DashboardLayout from '../layouts/dashboard';
 
-const RouteWithLayout = ({ layout: Layout, component: Component, path, index, ...rest }) => (
-  <Layout>
-    {index && <Navigate to={DEFAULT_PATH} replace />}
-    <Loadable>
-      <Component {...rest} />
-    </Loadable>
-  </Layout>
-);
+// config
+import { DEFAULT_PATH } from '../config';
+import LoadingScreen from '../components/LoadingScreen';
+
+const Loadable = (Component) => (props) => {
+  return (
+    <Suspense fallback={<LoadingScreen />}>
+      <Component {...props} />
+    </Suspense>
+  );
+};
 
 export default function Router() {
   return useRoutes([
     {
-      path: "/",
+      path: '/',
       element: <DashboardLayout />,
       children: [
-        {
-          ...RouteWithLayout({
-            layout: DashboardLayout,
-            component: GeneralApp,
-            path: "app",
-          }),
-        },
-        {
-          path: "404",
-          element: <Loadable><Page404 /></Loadable>,
-        },
-        {
-          path: "*",
-          element: <Navigate to="/404" replace />,
-        },
+        { element: <Navigate to={DEFAULT_PATH} replace />, index: true },
+        { path: 'app', element: <GeneralApp /> },
+
+        { path: '404', element: <Page404 /> },
+        { path: '*', element: <Navigate to='/404' replace /> },
       ],
     },
-    {
-      path: "*",
-      element: <Navigate to="/404" replace />,
-    },
+    { path: '*', element: <Navigate to='/404' replace /> },
   ]);
 }
 
-const GeneralApp = lazy(() => import("../pages/dashboard/GeneralApp"));
-const Page404 = lazy(() => import("../pages/Page404"));
+const GeneralApp = Loadable(
+  lazy(() => import('../pages/dashboard/GeneralApp'))
+);
+const Page404 = Loadable(lazy(() => import('../pages/Page404')));
