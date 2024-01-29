@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box } from '@mui/material';
+import { Box, Stack, Typography, IconButton } from '@mui/material';
 
 const Chats = () => {
   return (
@@ -8,11 +8,13 @@ const Chats = () => {
         position: 'relative',
         height: '100vh',
         width: 320,
-        backgroundColor: '#F8fafa',
+        backgroundColor: '#F8faff',
         boxShadow: '0px 0px 2px rgba(0, 0, 0, 0.25)',
       }}
     >
-      Chat
+      <Stack direction={''} alignItems={''}>
+        <Typography variant='h3'>Chats</Typography>
+      </Stack>
     </Box>
   );
 };
