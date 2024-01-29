@@ -14,6 +14,7 @@ const Chats = () => {
     >
       <Stack direction={''} alignItems={''}>
         <Typography variant='h3'>Chats</Typography>
+        <IconButton></IconButton>
       </Stack>
     </Box>
   );
