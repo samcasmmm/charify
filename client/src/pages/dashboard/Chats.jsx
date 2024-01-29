@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Stack, Typography, IconButton } from '@mui/material';
+import { CircleDashed } from 'phosphor-react';
 
 const Chats = () => {
   return (
@@ -14,7 +15,9 @@ const Chats = () => {
     >
       <Stack direction={''} alignItems={''}>
         <Typography variant='h3'>Chats</Typography>
-        <IconButton></IconButton>
+        <IconButton>
+          <CircleDashed />
+        </IconButton>
       </Stack>
     </Box>
   );
