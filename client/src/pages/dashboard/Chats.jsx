@@ -1,6 +1,13 @@
 import React from 'react';
-import { Box, Stack, Typography, IconButton } from '@mui/material';
+import { Box, Stack, Typography, IconButton, styled } from '@mui/material';
 import { CircleDashed } from 'phosphor-react';
+
+const Search = styled('div')(({ theme }) => ({
+  position: 'relative',
+  borderRadius: 20,
+}));
+const SearchIconWrapper = styled('div')(({ theme }) => ({}));
+const StyledInputBase = styled('div')(({ theme }) => ({}));
 
 const Chats = () => {
   return (
@@ -13,11 +20,17 @@ const Chats = () => {
         boxShadow: '0px 0px 2px rgba(0, 0, 0, 0.25)',
       }}
     >
-      <Stack direction={''} alignItems={''}>
-        <Typography variant='h3'>Chats</Typography>
-        <IconButton>
-          <CircleDashed />
-        </IconButton>
+      <Stack p={3}>
+        <Stack
+          direction={'row'}
+          alignItems={'center'}
+          justifyContent={'space-between'}
+        >
+          <Typography variant='h3'>Chats</Typography>
+          <IconButton>
+            <CircleDashed />
+          </IconButton>
+        </Stack>
       </Stack>
     </Box>
   );
