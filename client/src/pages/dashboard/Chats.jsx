@@ -15,8 +15,14 @@ const Search = styled('div')(({ theme }) => ({
   backgroundColor: alpha(theme.palette.background.paper, 1),
   marginRight: theme.spacing(2),
   marginLeft: 0,
+  width: '100%',
 }));
-const SearchIconWrapper = styled('div')(({ theme }) => ({}));
+const SearchIconWrapper = styled('div')(({ theme }) => ({
+  padding: theme.spacing(0, 2),
+  height: '100%',
+  position: 'absolute',
+  pointerEvents: 'none',
+}));
 const StyledInputBase = styled('div')(({ theme }) => ({}));
 
 const Chats = () => {
