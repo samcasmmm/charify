@@ -155,7 +155,7 @@ const DashboardLayout = () => {
             </Stack>
           </Stack>
           <Stack direction={'column'} alignItems={'center'} spacing={4}>
-            <AntSwitch onChange={onToggleMode} defaultChecked />
+            <AntSwitch onChange={onToggleMode} />
             <Avatar src={faker.image.avatar()} alt='avator' />
           </Stack>
         </Stack>
