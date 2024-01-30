@@ -1,10 +1,20 @@
 import React from 'react';
-import { Box, Stack, Typography, IconButton, styled } from '@mui/material';
+import {
+  Box,
+  Stack,
+  Typography,
+  IconButton,
+  styled,
+  alpha,
+} from '@mui/material';
 import { CircleDashed } from 'phosphor-react';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: 20,
+  backgroundColor: alpha(theme.palette.background.paper, 1),
+  marginRight: theme.spacing(2),
+  marginLeft: 0,
 }));
 const SearchIconWrapper = styled('div')(({ theme }) => ({}));
 const StyledInputBase = styled('div')(({ theme }) => ({}));
