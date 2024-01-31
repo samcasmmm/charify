@@ -71,7 +71,7 @@ const ChatElement = ({ user }) => {
           </StyledBadge>
           <Stack spacing={0.3}>
             <Typography variant='subtitle2'>{user.name}</Typography>
-            <Typography variant='caption'>hello there,</Typography>
+            <Typography variant='caption'>{user.msg}</Typography>
           </Stack>
         </Stack>
         <Stack direction={'column'} alignItems={'center'} spacing={2}>
