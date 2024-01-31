@@ -6,10 +6,29 @@ import {
   IconButton,
   InputBase,
   Button,
+  Divider,
+  Avatar,
 } from '@mui/material';
 import { styled, alpha } from '@mui/material/styles';
 import { CircleDashed } from 'phosphor-react';
 import { MagnifyingGlass, ArchiveBox } from 'phosphor-react';
+import { faker } from '@faker-js/faker';
+
+const ChatElement = () => {
+  return (
+    <Box
+      sx={{
+        width: '100%',
+        borderRadius: 1,
+        backgroundColor: '#fff',
+      }}
+      p={2}
+    >
+      <Stack></Stack>
+      <Avatar src={faker} />
+    </Box>
+  );
+};
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -32,6 +51,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: 'inherit',
   '& .MuiInputBase-input': {
     padding: theme.spacing(1, 1, 1, 0),
+    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     width: '100%',
   },
 }));
@@ -69,9 +89,17 @@ const Chats = () => {
             />
           </Search>
         </Stack>
-        <Stack>
-          <ArchiveBox size={24} />
-          <Button></Button>
+        <Stack spacing={1}>
+          <Stack direction={'row'} alignItems={'center'} spacing={1.5}>
+            <ArchiveBox size={24} />
+            <Button>Archive</Button>
+          </Stack>
+          <Divider />
+          <Stack direction={'column'}>
+            {Array.from({ length: 4 }).map((item, index) => (
+              <ChatElement key={index} />
+            ))}
+          </Stack>
         </Stack>
       </Stack>
     </Box>
