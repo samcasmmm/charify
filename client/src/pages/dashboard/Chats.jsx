@@ -1,7 +1,15 @@
 import React from 'react';
-import { Box, Stack, Typography, IconButton, InputBase } from '@mui/material';
+import {
+  Box,
+  Stack,
+  Typography,
+  IconButton,
+  InputBase,
+  Button,
+} from '@mui/material';
 import { styled, alpha } from '@mui/material/styles';
 import { CircleDashed } from 'phosphor-react';
+import { MagnifyingGlass, ArchiveBox } from 'phosphor-react';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -49,6 +57,21 @@ const Chats = () => {
           <IconButton>
             <CircleDashed />
           </IconButton>
+        </Stack>
+        <Stack sx={{ width: '100%' }}>
+          <Search>
+            <SearchIconWrapper>
+              <MagnifyingGlass color='#709ce6' />
+            </SearchIconWrapper>
+            <StyledInputBase
+              placeholder='Search...'
+              inputProps={{ 'aria-label': 'search' }}
+            />
+          </Search>
+        </Stack>
+        <Stack>
+          <ArchiveBox size={24} />
+          <Button></Button>
         </Stack>
       </Stack>
     </Box>
