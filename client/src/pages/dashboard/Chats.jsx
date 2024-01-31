@@ -14,6 +14,7 @@ import { styled, alpha } from '@mui/material/styles';
 import { CircleDashed } from 'phosphor-react';
 import { MagnifyingGlass, ArchiveBox } from 'phosphor-react';
 import { faker } from '@faker-js/faker';
+import { ChatList } from '../../data/index';
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -44,7 +45,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
   },
 }));
 
-const ChatElement = () => {
+const ChatElement = ({ user }) => {
   return (
     <Box
       sx={{
@@ -53,22 +54,32 @@ const ChatElement = () => {
         backgroundColor: '#fff',
       }}
       p={2}
+      my={1}
     >
       <Stack
         direction={'row'}
         alignItems={'center'}
         justifyContent={'space-between'}
       >
-        <Stack direction={'row'} spacing={2}>
+        <Stack direction={'row'} spacing={2} sx={{ width: '100%' }}>
           <StyledBadge
             overlap='circular'
             anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
             variant='dot'
           >
-            <Avatar src={faker.image.avatar()} />
+            <Avatar src={user.img} />
           </StyledBadge>
+          <Stack spacing={0.3}>
+            <Typography variant='subtitle2'>{user.name}</Typography>
+            <Typography variant='caption'>hello there,</Typography>
+          </Stack>
         </Stack>
-        <Stack></Stack>
+        <Stack direction={'column'} alignItems={'center'} spacing={2}>
+          <Typography sx={{ fontWeight: 600 }} variant='caption'>
+            {user.time}
+          </Typography>
+          <Badge color='primary' badgeContent={user.unread} />
+        </Stack>
       </Stack>
     </Box>
   );
@@ -140,9 +151,22 @@ const Chats = () => {
           </Stack>
           <Divider />
           <Stack direction={'column'}>
-            {Array.from({ length: 4 }).map((item, index) => (
-              <ChatElement key={index} />
-            ))}
+            <Stack direction={'column'} spacing={2.4}>
+              <Typography variant='subtitle2' sx={{ color: '#676767' }}>
+                Pinned
+              </Typography>
+              {ChatList.filter((el) => el.pinned).map((item) => (
+                <ChatElement key={item.id} user={item} />
+              ))}
+            </Stack>
+            <Stack direction={'column'} spacing={2.4}>
+              <Typography variant='subtitle2' sx={{ color: '#676767' }}>
+                Pinned
+              </Typography>
+              {ChatList.filter((el) => !el.pinned).map((item) => (
+                <ChatElement key={item.id} user={item} />
+              ))}
+            </Stack>
           </Stack>
         </Stack>
       </Stack>
