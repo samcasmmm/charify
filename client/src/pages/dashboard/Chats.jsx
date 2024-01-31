@@ -1,12 +1,6 @@
 import React from 'react';
-import {
-  Box,
-  Stack,
-  Typography,
-  IconButton,
-  styled,
-  alpha,
-} from '@mui/material';
+import { Box, Stack, Typography, IconButton, InputBase } from '@mui/material';
+import { styled, alpha } from '@mui/material/styles';
 import { CircleDashed } from 'phosphor-react';
 
 const Search = styled('div')(({ theme }) => ({
@@ -22,8 +16,17 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
   height: '100%',
   position: 'absolute',
   pointerEvents: 'none',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
 }));
-const StyledInputBase = styled('div')(({ theme }) => ({}));
+const StyledInputBase = styled(InputBase)(({ theme }) => ({
+  color: 'inherit',
+  '& .MuiInputBase-input': {
+    padding: theme.spacing(1, 1, 1, 0),
+    width: '100%',
+  },
+}));
 
 const Chats = () => {
   return (
