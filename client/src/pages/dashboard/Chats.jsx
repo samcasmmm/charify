@@ -45,7 +45,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
   },
 }));
 
-const ChatElement = ({ user }) => {
+const ChatElement = ({ id, name, img, msg, time, unread, online }) => {
   return (
     <Box
       sx={{
@@ -62,23 +62,27 @@ const ChatElement = ({ user }) => {
         justifyContent={'space-between'}
       >
         <Stack direction={'row'} spacing={2} sx={{ width: '100%' }}>
-          <StyledBadge
-            overlap='circular'
-            anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-            variant='dot'
-          >
-            <Avatar src={user.img} />
-          </StyledBadge>
+          {online ? (
+            <StyledBadge
+              overlap='circular'
+              anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+              variant='dot'
+            >
+              <Avatar src={img} />
+            </StyledBadge>
+          ) : (
+            <Avatar src={img} />
+          )}
           <Stack spacing={0.3}>
-            <Typography variant='subtitle2'>{user.name}</Typography>
-            <Typography variant='caption'>{user.msg}</Typography>
+            <Typography variant='subtitle2'>{name}</Typography>
+            <Typography variant='caption'>{msg}</Typography>
           </Stack>
         </Stack>
         <Stack direction={'column'} alignItems={'center'} spacing={2}>
           <Typography sx={{ fontWeight: 600 }} variant='caption'>
-            {user.time}
+            {time}
           </Typography>
-          <Badge color='primary' badgeContent={user.unread} />
+          <Badge color='primary' badgeContent={unread} />
         </Stack>
       </Stack>
     </Box>
@@ -164,7 +168,7 @@ const Chats = () => {
                 Pinned
               </Typography>
               {ChatList.filter((el) => !el.pinned).map((item) => (
-                <ChatElement key={item.id} user={item} />
+                <ChatElement key={item.id} {...item} />
               ))}
             </Stack>
           </Stack>
