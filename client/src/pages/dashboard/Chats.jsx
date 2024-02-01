@@ -160,12 +160,12 @@ const Chats = () => {
                 Pinned
               </Typography>
               {ChatList.filter((el) => el.pinned).map((item) => (
-                <ChatElement key={item.id} user={item} />
+                <ChatElement key={item.id} {...item} />
               ))}
             </Stack>
             <Stack direction={'column'} spacing={2.4}>
               <Typography variant='subtitle2' sx={{ color: '#676767' }}>
-                Pinned
+                All Chats
               </Typography>
               {ChatList.filter((el) => !el.pinned).map((item) => (
                 <ChatElement key={item.id} {...item} />
