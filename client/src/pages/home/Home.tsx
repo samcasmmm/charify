@@ -5,6 +5,7 @@ import { Button, Switch } from "@/components";
 import { useTheme } from "@/hooks/useThemeMode";
 import { useAppSelector, useAppDispatch } from "@/hooks/useAppState";
 import { incre } from "@/app/resources/Counter.slice";
+import Avatar from "@/components/common/Avatar";
 
 interface Props {}
 
@@ -33,8 +34,9 @@ const Home = (props: Props) => {
         }}
       />
       <label htmlFor="theme">switch</label>
-      <Icon Icon={Profile_Menu[0].icon} size={24} className="" />
+      <Icon Icon={Profile_Menu[1].icon} size={24} className="" />
       <Button onClick={() => dispatch(incre())}>{count}</Button>
+      <Avatar label="vinit" />
     </div>
   );
 };
