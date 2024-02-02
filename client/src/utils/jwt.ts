@@ -1,4 +1,5 @@
 import JWT, { JwtPayload } from "jwt-decode";
+import axios from "axios";
 
 const isValid = (accessToken: string) => {
   if (!accessToken) {
@@ -12,7 +13,7 @@ const isValid = (accessToken: string) => {
 };
 
 const handleTokenExpired = (exp: string) => {
-  let expiredTimer = "";
+  let expiredTimer = undefined;
   const currentTime = Date.now();
   const timeLeft = parseInt(exp) * 1000 - currentTime;
   clearTimeout(expiredTimer);
@@ -22,4 +23,16 @@ const handleTokenExpired = (exp: string) => {
   }, timeLeft);
 };
 
-export { isValid, handleTokenExpired };
+const setSession = (accessToken: string) => {
+  if (accessToken) {
+    localStorage.setItem("accessToken", accessToken);
+    axios.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
+    const { exp } = JWT.jwtDecode(accessToken);
+    handleTokenExpired(String(exp));
+  } else {
+    localStorage.removeItem("accessToken");
+    delete axios.defaults.headers.common.Authorization;
+  }
+};
+
+export { isValid, handleTokenExpired, setSession };
