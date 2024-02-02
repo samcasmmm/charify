@@ -1,4 +1,3 @@
-import React, { ReactNode } from "react";
 import { Icon } from "phosphor-react";
 import { cn } from "@/lib/clxs";
 
