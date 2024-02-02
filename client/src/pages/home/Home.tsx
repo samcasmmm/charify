@@ -1,5 +1,4 @@
 import Icon from "@/components/common/Icon";
-import React from "react";
 import { Profile_Menu } from "@/data/index";
 import { Button, Switch } from "@/components";
 import { useTheme } from "@/hooks/useThemeMode";
@@ -7,9 +6,7 @@ import { useAppSelector, useAppDispatch } from "@/hooks/useAppState";
 import { incre } from "@/app/resources/Counter.slice";
 import Avatar from "@/components/common/Avatar";
 
-interface Props {}
-
-const Home = (props: Props) => {
+const Home = () => {
   const { theme, setTheme } = useTheme();
 
   const { count } = useAppSelector((state) => state.counter);
