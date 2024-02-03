@@ -5,7 +5,7 @@ interface Props {
   label: string;
   className?: string;
 }
-const Avatar = ({ label, className }: Props) => {
+const NameAvatar = ({ label, className }: Props) => {
   const { name, colorClass } = createAvatar(label);
 
   return (
@@ -20,4 +20,4 @@ const Avatar = ({ label, className }: Props) => {
   );
 };
 
-export default Avatar;
+export default NameAvatar;

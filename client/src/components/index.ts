@@ -1,15 +1,10 @@
-// radix UI components
 import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
 
-// custom components
 import Sidebar from "@/components/sidebar/Sidebar";
-// common UI components
+import ThemeSwitcher from "@/components/common/ThemeSwitcher";
 
-export {
-  // radix UI components
-  Switch,
-  Button,
-  // custom components
-  Sidebar,
-};
+import Avatar from "@/components/common/NameAvatar";
+import Icon from "@/components/common/Icon";
+
+export { Switch, Button, Sidebar, ThemeSwitcher, Avatar, Icon };

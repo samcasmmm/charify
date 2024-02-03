@@ -1,40 +1,19 @@
 import Icon from "@/components/common/Icon";
 import { Profile_Menu } from "@/data/index";
-import { Button, Switch } from "@/components";
-import { useTheme } from "@/hooks/useThemeMode";
+import { Button } from "@/components";
 import { useAppSelector, useAppDispatch } from "@/hooks/useAppState";
 import { incre } from "@/app/resources/Counter.slice";
-import Avatar from "@/components/common/Avatar";
+import NameAvatar from "@/components/common/NameAvatar";
 
 const Home = () => {
-  const { theme, setTheme } = useTheme();
-
   const { count } = useAppSelector((state) => state.counter);
   const dispatch = useAppDispatch();
 
   return (
     <div className="mt-8 flex items-center justify-center space-x-5">
-      <Switch
-        id="theme"
-        checked={theme === "dark"}
-        onCheckedChange={() => {
-          switch (theme) {
-            case "light":
-              setTheme("dark");
-              break;
-            case "dark":
-              setTheme("light");
-              break;
-            default:
-              setTheme("system");
-              break;
-          }
-        }}
-      />
-      <label htmlFor="theme">switch</label>
       <Icon Icon={Profile_Menu[1].icon} size={24} className="" />
       <Button onClick={() => dispatch(incre())}>{count}</Button>
-      <Avatar label="vinit" />
+      <NameAvatar label="vinit" />
     </div>
   );
 };
