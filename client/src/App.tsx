@@ -1,14 +1,15 @@
-import './App.css';
-import { Suspense } from 'react';
-import { Toaster } from 'react-hot-toast';
-import { Routes, Route } from 'react-router-dom';
-import routes from '@/routes/';
-import Desktop from '@/layout/Desktop';
+import "./App.css";
+import { Suspense } from "react";
+import { Toaster } from "react-hot-toast";
+import { Routes, Route } from "react-router-dom";
+import routes from "@/routes/";
+import Desktop from "@/layout/Desktop";
+import LoadingScreen from "@/components/loading/LoadingScreen";
 
 function App() {
   return (
     <>
-      <Toaster position='top-right' reverseOrder={true} />
+      <Toaster position="top-right" reverseOrder={true} />
       <Routes>
         <Route element={<Desktop />}>
           {routes.map(({ path, component: Component }, index) => (
@@ -16,7 +17,7 @@ function App() {
               key={index}
               path={path}
               element={
-                <Suspense fallback={<p>Loading..</p>}>
+                <Suspense fallback={<LoadingScreen />}>
                   <Component />
                 </Suspense>
               }
