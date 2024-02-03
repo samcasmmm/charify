@@ -1,10 +1,11 @@
-import { Outlet } from 'react-router-dom';
+import { Sidebar } from "@/components";
+import { Outlet } from "react-router-dom";
 
-type Props = {};
-
-const Desktop = (props: Props) => {
+const Desktop = () => {
   return (
-    <div>
+    <div className="flex h-screen w-full flex-row">
+      <Sidebar />
+      <div>Chats</div>
       <Outlet />
     </div>
   );

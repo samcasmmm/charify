@@ -16,6 +16,7 @@ const Home = () => {
     <div className="mt-8 flex items-center justify-center space-x-5">
       <Switch
         id="theme"
+        checked={theme === "dark"}
         onCheckedChange={() => {
           switch (theme) {
             case "light":
