@@ -3,18 +3,20 @@ import {
   AvatarFallback,
   AvatarImage,
 } from "@/components/ui/avatar";
+import { cn } from "@/lib/clxs";
 
 type AvatarProps = {
   label?: string;
   src?: string;
   alt?: string;
+  className?: string;
 };
 
-const Avatar: React.FC<AvatarProps> = ({ label, src, alt }) => {
+const Avatar: React.FC<AvatarProps> = ({ label, src, alt, className }) => {
   return (
-    <AvatarMain>
+    <AvatarMain className={cn("", className)}>
       <AvatarImage
-        src={label ? label : "https://github.com/shadcn.png"}
+        src={src ? src : "https://github.com/shadcn.png"}
         alt={alt ? alt : "@shadcn"}
       />
       <AvatarFallback>{label ? label : "CN"}</AvatarFallback>

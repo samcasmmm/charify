@@ -1,8 +1,9 @@
 import React from "react";
 import { useAppDispatch, useAppSelector } from "@/hooks/useAppState";
-import { Icon, ThemeSwitcher } from "@/components";
+import { Icon, ThemeSwitcher, Avatar } from "@/components";
 import { Nav_Buttons } from "@/data";
 import { setActiveButton } from "@/app/resources/NavButton.slice";
+import { faker } from "@faker-js/faker";
 
 interface SidebarProps {
   index: number;
@@ -44,8 +45,9 @@ const Sidebar: React.FC = () => {
             />
           ))}
         </div>
-        <div className="pb-6">
+        <div className="space-y-3 pb-6">
           <ThemeSwitcher />
+          <Avatar src={faker.image.avatar()} />
         </div>
       </div>
     </div>
