@@ -28,6 +28,20 @@ const ChatListBox: React.FC<ChatListBoxProps> = ({
   return <div className="dark:bg-black20 w-full rounded bg-white p-2"></div>;
 };
 
+const ArchiveButton = () => {
+  return (
+    <div className="group flex cursor-pointer flex-row items-center space-x-2 rounded-lg p-2 duration-200 ease-in-out hover:bg-blue-600">
+      <ArchiveBox
+        size={24}
+        className="duration-200 ease-in-out group-hover:text-white"
+      />
+      <p className="select-none duration-200 ease-in-out group-hover:text-white">
+        Archive
+      </p>
+    </div>
+  );
+};
+
 const Chats: React.FC = () => {
   return (
     <div className="flex w-[300px] flex-col space-y-6 bg-slate-300/30 p-4 dark:bg-slate-800/70">
@@ -36,11 +50,7 @@ const Chats: React.FC = () => {
         <Icon Icon={CircleDashed} size={24} />
       </div>
       <SearchBox />
-      <div className="group flex cursor-pointer flex-row items-center space-x-2 rounded-lg p-2 duration-200 ease-in-out hover:bg-blue-600">
-        <ArchiveBox size={24} />
-        <p>Archive</p>
-      </div>
-
+      <ArchiveButton />
       <Separator />
       <div className="flex flex-col items-center justify-between space-y-4">
         {ChatList.map((item) => (
