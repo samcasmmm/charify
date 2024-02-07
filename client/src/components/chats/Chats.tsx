@@ -1,5 +1,5 @@
-import { Avatar, Icon, Input } from "@/components/";
-import { CircleDashed, MagnifyingGlass } from "phosphor-react";
+import { Icon, Separator } from "@/components/";
+import { ArchiveBox, CircleDashed } from "phosphor-react";
 import SearchBox from "./SearchBox";
 import { ChatList } from "@/data";
 import React from "react";
@@ -25,9 +25,7 @@ const ChatListBox: React.FC<ChatListBoxProps> = ({
   pinned,
   online,
 }) => {
-  return (
-    <div className="dark:bg-black20 w-full rounded bg-white p-2">ChatBox</div>
-  );
+  return <div className="dark:bg-black20 w-full rounded bg-white p-2"></div>;
 };
 
 const Chats: React.FC = () => {
@@ -38,6 +36,12 @@ const Chats: React.FC = () => {
         <Icon Icon={CircleDashed} size={24} />
       </div>
       <SearchBox />
+      <div className="group flex cursor-pointer flex-row items-center space-x-2 rounded-lg p-2 duration-200 ease-in-out hover:bg-blue-600">
+        <ArchiveBox size={24} />
+        <p>Archive</p>
+      </div>
+
+      <Separator />
       <div className="flex flex-col items-center justify-between space-y-4">
         {ChatList.map((item) => (
           <ChatListBox

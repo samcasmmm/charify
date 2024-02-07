@@ -1,6 +1,7 @@
 import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Separator } from "@/components/ui/separator";
 
 import Sidebar from "@/components/sidebar/Sidebar";
 import Chats from "@/components/chats/Chats";
@@ -14,6 +15,7 @@ export {
   Switch,
   Button,
   Input,
+  Separator,
   Sidebar,
   Chats,
   Avatar,
