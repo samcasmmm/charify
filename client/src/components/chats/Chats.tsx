@@ -1,6 +1,9 @@
 import { Avatar, Icon, Input } from "@/components/";
 import { CircleDashed, MagnifyingGlass } from "phosphor-react";
 import SearchBox from "./SearchBox";
+
+const ChatWithPerson: React.FC = () => {};
+
 const Chats: React.FC = () => {
   return (
     <div className="flex w-[300px] flex-col space-y-6 bg-slate-300/30 p-4 dark:bg-slate-800/70">
