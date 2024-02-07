@@ -25,17 +25,17 @@ const ChatListBox: React.FC<ChatListBoxProps> = ({
 }) => {
   return (
     <div className="dark:bg-black20 w-full rounded bg-white p-2">
-      <div className="flex w-full flex-row justify-between">
-        <div className="flex w-full flex-row justify-start space-x-2">
+      <div className="flex">
+        <div className="flex-2 flex w-full flex-row justify-start space-x-2">
           <Avatar src={img} isOnline={online} />
           <div className="">
             <p className="font-semibold">{name}</p>
             <p className="text-sm">{msg}</p>
           </div>
         </div>
-        <div className="">
+        <div className="flex flex-1 flex-col items-center">
           <p>{time}</p>
-          <p className="flex items-center justify-center rounded-full bg-emerald-600">
+          <p className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-600 text-sm text-white">
             {unread}
           </p>
         </div>
