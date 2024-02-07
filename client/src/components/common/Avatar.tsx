@@ -20,7 +20,7 @@ type isOnlineProps = {
 const RippleEffect = ({ online }: isOnlineProps) => {
   return (
     online && (
-      <div className="absolute bottom-[-2px] right-2 z-50 h-3 w-3 rounded-full ">
+      <div className="absolute bottom-2 right-2 z-50 h-3 w-3 rounded-full ">
         <span className="relative flex h-3 w-3">
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
           <span className="relative inline-flex h-3 w-3 rounded-full bg-emerald-500"></span>
@@ -38,7 +38,7 @@ const Avatar: React.FC<AvatarProps> = ({
   className,
 }) => {
   return (
-    <div className="relative">
+    <div className="relative p-2">
       <AvatarMain
         className={cn(
           "border-2 border-gray-400 dark:border-gray-100",
@@ -51,6 +51,7 @@ const Avatar: React.FC<AvatarProps> = ({
         />
         <AvatarFallback>{label ? label : "CN"}</AvatarFallback>
       </AvatarMain>
+
       <RippleEffect online={isOnline} />
     </div>
   );
