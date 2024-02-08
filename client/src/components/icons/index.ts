@@ -1,3 +1,3 @@
 import { CircleDashed } from "phosphor-react";
-
-export { CircleDashed };
+import { ArchiveBox } from "phosphor-react";
+export { CircleDashed, ArchiveBox };

@@ -1,5 +1,4 @@
-import React from "react";
-import { ArchiveBox } from "phosphor-react";
+import { ArchiveBox } from "@/components/icons";
 
 const ArchiveButton = () => {
   return (

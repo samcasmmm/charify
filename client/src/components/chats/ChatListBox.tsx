@@ -11,6 +11,12 @@ type ChatListBoxProps = {
   online: boolean;
 };
 
+const truncateMessage = (message: string, truncateLength: number = 20) => {
+  return message.length > truncateLength
+    ? `${message.slice(0, truncateLength)} ...`
+    : message;
+};
+
 const ChatListBox: React.FC<ChatListBoxProps> = ({
   id,
   img,
@@ -20,16 +26,8 @@ const ChatListBox: React.FC<ChatListBoxProps> = ({
   unread,
   online,
 }) => {
-  function truncateMessage(message: string) {
-    const truncateLength = 20;
-    if (message.length > truncateLength) {
-      return message.slice(0, truncateLength) + " ...";
-    } else {
-      return message;
-    }
-  }
   return (
-    <div className="w-[95%] cursor-pointer rounded bg-white p-2 dark:bg-slate-700">
+    <div className="w-[95%] cursor-pointer rounded-md bg-white p-2 dark:bg-slate-700">
       <div className="flex">
         <div className="flex-2 flex w-full flex-row justify-start space-x-2">
           <Avatar src={img} isOnline={online} />
