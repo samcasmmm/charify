@@ -23,14 +23,25 @@ const ChatListBox: React.FC<ChatListBoxProps> = ({
   unread,
   online,
 }) => {
+  function truncateMessage(message: string) {
+    const truncateMessage = message;
+    const truncateLength = 20;
+    if (truncateMessage.length > truncateLength) {
+      return truncateMessage.slice(0, truncateLength) + " ...";
+    } else {
+      return message;
+    }
+  }
   return (
-    <div className="w-[95%] rounded bg-white p-2 dark:bg-slate-700">
+    <div className="w-[95%] cursor-pointer rounded bg-white p-2 dark:bg-slate-700">
       <div className="flex">
         <div className="flex-2 flex w-full flex-row justify-start space-x-2">
           <Avatar src={img} isOnline={online} />
           <div className="">
-            <p className="font-semibold">{name}</p>
-            <p className="text-sm">{msg}</p>
+            <p className="font-semibold">
+              {name} : {id}
+            </p>
+            <p className="text-sm">{truncateMessage(msg)}</p>
           </div>
         </div>
         <div
@@ -77,6 +88,7 @@ const Chats: React.FC = () => {
         <div className="flex flex-col items-center justify-between space-y-4">
           {ChatList.filter((el) => el.pinned).map((item) => (
             <ChatListBox
+              key={item.id}
               id={item.id}
               img={item.img}
               name={item.name}
@@ -91,6 +103,7 @@ const Chats: React.FC = () => {
         <div className="flex flex-col items-center justify-between space-y-4">
           {ChatList.filter((el) => !el.pinned).map((item) => (
             <ChatListBox
+              key={item.id}
               id={item.id}
               img={item.img}
               name={item.name}
