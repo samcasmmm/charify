@@ -17,13 +17,11 @@ const ThemeSwitcher = () => {
     }
   };
   return (
-    <div>
-      <Switch
-        id="theme"
-        checked={theme === "dark"}
-        onCheckedChange={toggleTheme}
-      />
-    </div>
+    <Switch
+      id="theme"
+      checked={theme === "dark"}
+      onCheckedChange={toggleTheme}
+    />
   );
 };
 

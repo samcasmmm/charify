@@ -24,7 +24,7 @@ const ChatListBox: React.FC<ChatListBoxProps> = ({
   online,
 }) => {
   return (
-    <div className="w-full rounded bg-white p-2 dark:bg-slate-700">
+    <div className="w-[95%] rounded bg-white p-2 dark:bg-slate-700">
       <div className="flex">
         <div className="flex-2 flex w-full flex-row justify-start space-x-2">
           <Avatar src={img} isOnline={online} />
@@ -64,7 +64,7 @@ const ArchiveButton = () => {
 
 const Chats: React.FC = () => {
   return (
-    <div className="flex w-[350px] flex-col space-y-6 bg-slate-300/30 p-4 dark:bg-slate-800/70">
+    <div className="flex w-[360px] flex-col space-y-6 bg-slate-300/30 p-4 dark:bg-slate-800/70">
       <div className="flex flex-row items-center justify-between">
         <p className="text-2xl font-bold">Chats</p>
         <Icon Icon={CircleDashed} size={24} />
