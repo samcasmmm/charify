@@ -1,6 +1,6 @@
-import { MagnifyingGlass } from "phosphor-react";
 import React from "react";
 import { Input } from "@/components/";
+import { MagnifyingGlass } from "@/components/icons";
 
 const SearchBox: React.FC = () => {
   return (
