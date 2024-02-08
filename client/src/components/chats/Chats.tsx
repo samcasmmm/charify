@@ -24,7 +24,7 @@ const ChatListBox: React.FC<ChatListBoxProps> = ({
   online,
 }) => {
   return (
-    <div className="dark:bg-black20 w-full rounded bg-white p-2">
+    <div className="w-full rounded bg-white p-2 dark:bg-black20">
       <div className="flex">
         <div className="flex-2 flex w-full flex-row justify-start space-x-2">
           <Avatar src={img} isOnline={online} />
@@ -46,7 +46,7 @@ const ChatListBox: React.FC<ChatListBoxProps> = ({
 
 const ArchiveButton = () => {
   return (
-    <div className="group flex cursor-pointer flex-row items-center space-x-2 rounded-lg p-2 duration-200 ease-in-out hover:bg-blue-600">
+    <div className="group flex cursor-pointer flex-row items-center space-x-1 rounded-lg p-2 duration-200 ease-in-out hover:bg-blue-600">
       <ArchiveBox
         size={24}
         className="duration-200 ease-in-out group-hover:text-white"
@@ -68,7 +68,9 @@ const Chats: React.FC = () => {
       <SearchBox />
       <ArchiveButton />
       <Separator />
-      <div className="flex flex-col items-center justify-between space-y-4">
+      <div className="flex flex-col">
+        <p className="py-3 font-semibold">Pinned</p>
+        <div className="flex flex-col items-center justify-between space-y-4"></div>
         {ChatList.filter((el) => el.pinned).map((item) => (
           <ChatListBox
             id={item.id}
