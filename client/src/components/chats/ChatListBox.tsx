@@ -27,7 +27,7 @@ const ChatListBox: React.FC<ChatListBoxProps> = ({
   online,
 }) => {
   return (
-    <div className="w-[95%] cursor-pointer rounded-md bg-white p-2 dark:bg-slate-700">
+    <div className="w-[95%] cursor-pointer rounded-md bg-white p-2 transition-colors duration-300 ease-in-out hover:bg-gray-200 dark:bg-slate-700 dark:hover:bg-slate-800">
       <div className="flex">
         <div className="flex-2 flex w-full flex-row justify-start space-x-2">
           <Avatar src={img} isOnline={online} />
@@ -39,7 +39,9 @@ const ChatListBox: React.FC<ChatListBoxProps> = ({
           </div>
         </div>
         <div
-          className={`flex flex-1 flex-col items-center ${unread !== 0 && "justify-center"}`}
+          className={`flex flex-1 flex-col items-center ${
+            unread !== 0 && "justify-center"
+          }`}
         >
           <p>{time}</p>
           {unread !== 0 && (
