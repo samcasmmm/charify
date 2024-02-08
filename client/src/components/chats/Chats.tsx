@@ -1,77 +1,10 @@
-import { Avatar, Icon, Separator } from "@/components/";
-import { ArchiveBox, CircleDashed } from "phosphor-react";
-import SearchBox from "./SearchBox";
-import { ChatList } from "@/data";
 import React from "react";
-
-type ChatListBoxProps = {
-  id: number;
-  img: string;
-  name: string;
-  msg: string;
-  time: string;
-  unread: number;
-  online: boolean;
-};
-
-const ChatListBox: React.FC<ChatListBoxProps> = ({
-  id,
-  img,
-  name,
-  msg,
-  time,
-  unread,
-  online,
-}) => {
-  function truncateMessage(message: string) {
-    const truncateMessage = message;
-    const truncateLength = 20;
-    if (truncateMessage.length > truncateLength) {
-      return truncateMessage.slice(0, truncateLength) + " ...";
-    } else {
-      return message;
-    }
-  }
-  return (
-    <div className="w-[95%] cursor-pointer rounded bg-white p-2 dark:bg-slate-700">
-      <div className="flex">
-        <div className="flex-2 flex w-full flex-row justify-start space-x-2">
-          <Avatar src={img} isOnline={online} />
-          <div className="">
-            <p className="font-semibold">
-              {name} : {id}
-            </p>
-            <p className="text-sm">{truncateMessage(msg)}</p>
-          </div>
-        </div>
-        <div
-          className={`flex flex-1 flex-col items-center ${unread !== 0 && "justify-center"}`}
-        >
-          <p>{time}</p>
-          {unread !== 0 && (
-            <p className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-600 text-sm text-white">
-              {unread}
-            </p>
-          )}
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const ArchiveButton = () => {
-  return (
-    <div className="group flex cursor-pointer flex-row items-center space-x-1 rounded-lg p-2 duration-200 ease-in-out hover:bg-blue-600">
-      <ArchiveBox
-        size={24}
-        className="duration-200 ease-in-out group-hover:text-white"
-      />
-      <p className="select-none duration-200 ease-in-out group-hover:text-white">
-        Archive
-      </p>
-    </div>
-  );
-};
+import { Icon, Separator } from "@/components/";
+import { CircleDashed } from "@/components/icons";
+import { ChatList } from "@/data";
+import SearchBox from "@/components/chats/SearchBox";
+import ChatListBox from "@/components/chats/ChatListBox";
+import ArchiveButton from "@/components/chats/ArchiveButton";
 
 const Chats: React.FC = () => {
   return (
