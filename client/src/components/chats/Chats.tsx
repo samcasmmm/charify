@@ -24,7 +24,7 @@ const ChatListBox: React.FC<ChatListBoxProps> = ({
   online,
 }) => {
   return (
-    <div className="w-full rounded bg-white p-2 dark:bg-black20">
+    <div className="w-full rounded bg-white p-2 dark:bg-slate-700">
       <div className="flex">
         <div className="flex-2 flex w-full flex-row justify-start space-x-2">
           <Avatar src={img} isOnline={online} />
@@ -33,11 +33,15 @@ const ChatListBox: React.FC<ChatListBoxProps> = ({
             <p className="text-sm">{msg}</p>
           </div>
         </div>
-        <div className="flex flex-1 flex-col items-center">
+        <div
+          className={`flex flex-1 flex-col items-center ${unread !== 0 && "justify-center"}`}
+        >
           <p>{time}</p>
-          <p className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-600 text-sm text-white">
-            {unread}
-          </p>
+          {unread !== 0 && (
+            <p className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-600 text-sm text-white">
+              {unread}
+            </p>
+          )}
         </div>
       </div>
     </div>
@@ -68,20 +72,35 @@ const Chats: React.FC = () => {
       <SearchBox />
       <ArchiveButton />
       <Separator />
-      <div className="flex flex-col">
+      <div className=" scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-white dark:scrollbar-track-slate-700 flex flex-col overflow-y-scroll">
         <p className="py-3 font-semibold">Pinned</p>
-        <div className="flex flex-col items-center justify-between space-y-4"></div>
-        {ChatList.filter((el) => el.pinned).map((item) => (
-          <ChatListBox
-            id={item.id}
-            img={item.img}
-            name={item.name}
-            msg={item.msg}
-            time={item.time}
-            unread={item.unread}
-            online={item.online}
-          />
-        ))}
+        <div className="flex flex-col items-center justify-between space-y-4">
+          {ChatList.filter((el) => el.pinned).map((item) => (
+            <ChatListBox
+              id={item.id}
+              img={item.img}
+              name={item.name}
+              msg={item.msg}
+              time={item.time}
+              unread={item.unread}
+              online={item.online}
+            />
+          ))}
+        </div>
+        <p className="py-3 font-semibold">All Chats</p>
+        <div className="flex flex-col items-center justify-between space-y-4">
+          {ChatList.filter((el) => !el.pinned).map((item) => (
+            <ChatListBox
+              id={item.id}
+              img={item.img}
+              name={item.name}
+              msg={item.msg}
+              time={item.time}
+              unread={item.unread}
+              online={item.online}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
