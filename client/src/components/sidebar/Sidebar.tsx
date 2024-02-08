@@ -45,7 +45,7 @@ const Sidebar: React.FC = () => {
             />
           ))}
         </div>
-        <div className="space-y-3 pb-6">
+        <div className="flex flex-col items-center space-y-3 pb-6">
           <ThemeSwitcher />
           <Avatar src={faker.image.avatar()} isOnline />
         </div>
