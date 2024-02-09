@@ -4,16 +4,16 @@ import { Button } from "@/components";
 import { useAppSelector, useAppDispatch } from "@/hooks/useAppState";
 import { incre } from "@/app/resources/Counter.slice";
 import NameAvatar from "@/components/common/NameAvatar";
+import { Sidebar, Chats } from "@/components";
 
 const Home = () => {
   const { count } = useAppSelector((state) => state.counter);
   const dispatch = useAppDispatch();
 
   return (
-    <div className="mt-8 flex items-center justify-center space-x-5">
-      <Icon Icon={Profile_Menu[1].icon} size={24} className="" />
-      <Button onClick={() => dispatch(incre())}>{count}</Button>
-      <NameAvatar label="vinit" />
+    <div className="flex w-full flex-row">
+      <Chats />
+      <div className="w-[calc(100vw - 42px)] h-full bg-white">C</div>
     </div>
   );
 };

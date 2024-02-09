@@ -16,7 +16,7 @@ const Chats: React.FC = () => {
       <SearchBox />
       <ArchiveButton />
       <Separator />
-      <div className=" scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-white dark:scrollbar-track-slate-700 flex flex-col overflow-y-scroll">
+      <div className=" flex flex-col overflow-y-scroll scrollbar-thin scrollbar-track-white scrollbar-thumb-slate-200 dark:scrollbar-track-slate-700  dark:scrollbar-thumb-slate-900">
         <p className="py-3 font-semibold">Pinned</p>
         <div className="flex flex-col items-center justify-between space-y-4">
           {ChatList.filter((el) => el.pinned).map((item) => (

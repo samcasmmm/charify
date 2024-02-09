@@ -45,7 +45,7 @@ const ChatListBox: React.FC<ChatListBoxProps> = ({
         >
           <p>{time}</p>
           {unread !== 0 && (
-            <p className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-600 text-sm text-white">
+            <p className="flex h-5 w-5 items-center justify-center rounded-full bg-blue-600 text-sm text-white">
               {unread}
             </p>
           )}
