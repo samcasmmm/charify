@@ -4,6 +4,7 @@ import { Icon, ThemeSwitcher, Avatar } from "@/components";
 import { Nav_Buttons } from "@/data";
 import { setActiveButton } from "@/app/resources/NavButton.slice";
 import { faker } from "@faker-js/faker";
+import { toggleChatSection } from "@/app/resources/Chats.slice";
 
 interface SidebarProps {
   index: number;
@@ -28,15 +29,11 @@ const SidebarIcon: React.FC<SidebarProps> = ({ index, onClick }) => {
 };
 
 const LogoWrapper: React.FC = () => {
-  let bool = false;
+  const { isOpen } = useAppSelector((state) => state.ChatSection);
+  const dispatch = useAppDispatch();
   const toggleChats = (): void => {
-    if (bool) {
-      console.log("true");
-      bool = false;
-    } else {
-      console.log("false");
-      bool = true;
-    }
+    console.log(isOpen);
+    dispatch(toggleChatSection());
   };
   return (
     <div

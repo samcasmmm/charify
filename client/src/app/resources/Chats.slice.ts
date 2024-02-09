@@ -11,9 +11,7 @@ const initialState: ChatsState = {
 };
 
 const toggleChatsFn = (state: ChatsState) => {
-  if (state.isOpen) {
-    state.isOpen = !state.isOpen;
-  }
+  state.isOpen = !state.isOpen;
 };
 
 const toggleChatByUserFn = (
