@@ -11,12 +11,8 @@ import { motion } from "framer-motion";
 const Chats: React.FC = () => {
   const { isOpen } = useAppSelector((state) => state.ChatSection);
   return (
-    <motion.div
-      className={`z-[1] flex w-[360px] flex-col space-y-6 bg-slate-300/30 p-4  transition-all duration-200 ease-in-out dark:bg-slate-800/70`}
-      animate={{
-        x: isOpen ? -360 : 0,
-        // position: isOpen ? "absolute" : "relative",
-      }}
+    <div
+      className={`uration-100 z-[1] flex  min-w-[360px] flex-col space-y-6 bg-slate-300/30  p-4 transition-all ease-linear dark:bg-slate-800/70`}
     >
       <div className="flex flex-row items-center justify-between">
         <p className="text-2xl font-bold">Chats</p>
@@ -57,7 +53,7 @@ const Chats: React.FC = () => {
           ))}
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

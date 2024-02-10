@@ -32,8 +32,8 @@ const LogoWrapper: React.FC = () => {
   const { isOpen } = useAppSelector((state) => state.ChatSection);
   const dispatch = useAppDispatch();
   const toggleChats = (): void => {
-    console.log(isOpen);
-    dispatch(toggleChatSection());
+    // console.log(isOpen);
+    // dispatch(toggleChatSection());
   };
   return (
     <div

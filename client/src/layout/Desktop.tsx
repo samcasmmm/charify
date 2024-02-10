@@ -5,7 +5,7 @@ const Desktop = () => {
   return (
     <div className="flex h-screen w-full flex-row">
       <Sidebar />
-      {/* <Chats /> */}
+      <Chats />
       <Outlet />
     </div>
   );

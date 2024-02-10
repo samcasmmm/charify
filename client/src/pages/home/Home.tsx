@@ -9,15 +9,10 @@ const Home = () => {
 
   return (
     <div className="flex w-full flex-row ">
-      <Chats />
-      <motion.div
-        className="w-[calc(100vw - 42px)] h-full bg-white p-3 duration-100 ease-linear"
-        animate={{
-          x: isOpen ? -360 : 0,
-        }}
-      >
+      {/* <Chats /> */}
+      <div className="w-[calc(100vw - 42px)] j h-full w-full bg-white p-3  transition-all duration-100 ease-linear dark:bg-slate-800">
         C
-      </motion.div>
+      </div>
     </div>
   );
 };
