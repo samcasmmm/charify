@@ -6,12 +6,17 @@ import SearchBox from "@/components/chats/SearchBox";
 import ChatListBox from "@/components/chats/ChatListBox";
 import ArchiveButton from "@/components/chats/ArchiveButton";
 import { useAppSelector } from "@/hooks/useAppState";
+import { motion } from "framer-motion";
 
 const Chats: React.FC = () => {
   const { isOpen } = useAppSelector((state) => state.ChatSection);
   return (
-    <div
-      className={`flex w-[360px]  flex-col space-y-6 bg-slate-300/30 p-4 dark:bg-slate-800/70 ${isOpen ? " absolute translate-x-[-100vw]" : " translate-x-0"} z-[1] transition-all duration-300 ease-in-out`}
+    <motion.div
+      className={`z-[1] flex w-[360px] flex-col space-y-6 bg-slate-300/30 p-4  transition-all duration-200 ease-in-out dark:bg-slate-800/70`}
+      animate={{
+        x: isOpen ? -360 : 0,
+        // position: isOpen ? "absolute" : "relative",
+      }}
     >
       <div className="flex flex-row items-center justify-between">
         <p className="text-2xl font-bold">Chats</p>
@@ -52,7 +57,7 @@ const Chats: React.FC = () => {
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -1,21 +1,23 @@
-import Icon from "@/components/common/Icon";
-import { Profile_Menu } from "@/data/index";
-import { Button } from "@/components";
 import { useAppSelector, useAppDispatch } from "@/hooks/useAppState";
-import { incre } from "@/app/resources/Counter.slice";
-import NameAvatar from "@/components/common/NameAvatar";
-import { Sidebar, Chats } from "@/components";
+import { Chats } from "@/components";
+import { motion } from "framer-motion";
 
 const Home = () => {
   const { count } = useAppSelector((state) => state.counter);
+  const { isOpen } = useAppSelector((state) => state.ChatSection);
   const dispatch = useAppDispatch();
 
   return (
     <div className="flex w-full flex-row ">
       <Chats />
-      <div className="w-[calc(100vw - 42px)] h-full bg-white transition-all duration-300 ease-in-out">
+      <motion.div
+        className="w-[calc(100vw - 42px)] h-full bg-white p-3 duration-100 ease-linear"
+        animate={{
+          x: isOpen ? -360 : 0,
+        }}
+      >
         C
-      </div>
+      </motion.div>
     </div>
   );
 };
