@@ -49,7 +49,7 @@ const Sidebar: React.FC = () => {
   const dispatch = useAppDispatch();
 
   return (
-    <div className="w-28 bg-slate-50 shadow dark:bg-slate-800">
+    <div className="z-20 w-28 bg-slate-50 shadow dark:bg-slate-800">
       <div className="flex h-full flex-col items-center justify-between p-4">
         <div className="flex flex-col items-center space-y-3 pt-6">
           <LogoWrapper />

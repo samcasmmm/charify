@@ -11,9 +11,11 @@ const Home = () => {
   const dispatch = useAppDispatch();
 
   return (
-    <div className="flex w-full flex-row">
+    <div className="flex w-full flex-row ">
       <Chats />
-      <div className="w-[calc(100vw - 42px)] h-full bg-white">C</div>
+      <div className="w-[calc(100vw - 42px)] h-full bg-white transition-all duration-300 ease-in-out">
+        C
+      </div>
     </div>
   );
 };

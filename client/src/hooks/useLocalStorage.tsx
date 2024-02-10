@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 type SetValue<T> = T | ((val: T) => T);
 
 function useLocalStorage<T>(
   key: string,
-  initialValue: T
+  initialValue: T,
 ): [T, (value: SetValue<T>) => void] {
   const [storedValue, setStoredValue] = useState(() => {
     try {
@@ -19,7 +19,7 @@ function useLocalStorage<T>(
   useEffect(() => {
     try {
       const valueToStore =
-        typeof storedValue === 'function'
+        typeof storedValue === "function"
           ? storedValue(storedValue)
           : storedValue;
       window.localStorage.setItem(key, JSON.stringify(valueToStore));
