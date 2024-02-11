@@ -9,7 +9,7 @@ const Home = () => {
 
   return (
     <div className="flex w-full flex-row ">
-      {/* <Chats /> */}
+      <Chats />
       <div className="w-[calc(100vw - 42px)] j h-full w-full bg-white p-3  transition-all duration-100 ease-linear dark:bg-slate-800">
         C
       </div>

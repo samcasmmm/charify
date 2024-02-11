@@ -5,8 +5,6 @@ import { ChatList } from "@/data";
 import SearchBox from "@/components/chats/SearchBox";
 import ChatListBox from "@/components/chats/ChatListBox";
 import ArchiveButton from "@/components/chats/ArchiveButton";
-import { useAppSelector } from "@/hooks/useAppState";
-import { motion } from "framer-motion";
 
 const Chats: React.FC = () => {
   return (
