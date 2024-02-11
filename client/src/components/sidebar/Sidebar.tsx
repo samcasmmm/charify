@@ -4,7 +4,6 @@ import { Icon, ThemeSwitcher, Avatar } from "@/components";
 import { Nav_Buttons } from "@/data";
 import { setActiveButton } from "@/app/resources/NavButton.slice";
 import { faker } from "@faker-js/faker";
-import { toggleChatSection } from "@/app/resources/Chats.slice";
 
 interface SidebarProps {
   index: number;
@@ -29,17 +28,8 @@ const SidebarIcon: React.FC<SidebarProps> = ({ index, onClick }) => {
 };
 
 const LogoWrapper: React.FC = () => {
-  const { isOpen } = useAppSelector((state) => state.ChatSection);
-  const dispatch = useAppDispatch();
-  const toggleChats = (): void => {
-    // console.log(isOpen);
-    // dispatch(toggleChatSection());
-  };
   return (
-    <div
-      className="cursor-pointer rounded-lg transition-all duration-300 ease-in-out hover:bg-white hover:dark:bg-slate-950"
-      onClick={toggleChats}
-    >
+    <div className="cursor-pointer rounded-lg transition-all duration-300 ease-in-out hover:bg-white hover:dark:bg-slate-950">
       <img src="/chatify_logo.png" alt="" className="w-16" />
     </div>
   );
