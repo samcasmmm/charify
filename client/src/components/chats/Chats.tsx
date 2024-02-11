@@ -8,9 +8,7 @@ import ArchiveButton from "@/components/chats/ArchiveButton";
 
 const Chats: React.FC = () => {
   return (
-    <div
-      className={`uration-100 z-[1] flex  min-w-[360px] flex-col space-y-6 bg-slate-300/30  p-4 transition-all ease-linear dark:bg-slate-800/70`}
-    >
+    <div className="z-10 flex min-w-[360px]  flex-col space-y-6 border-r border-r-slate-400 bg-slate-300/30 p-4  shadow-sm transition-all duration-100 ease-linear dark:border-r-slate-950 dark:bg-slate-800/70">
       <div className="flex flex-row items-center justify-between">
         <p className="text-2xl font-bold">Chats</p>
         <Icon Icon={CircleDashed} size={24} />
