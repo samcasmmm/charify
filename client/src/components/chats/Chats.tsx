@@ -9,7 +9,6 @@ import { useAppSelector } from "@/hooks/useAppState";
 import { motion } from "framer-motion";
 
 const Chats: React.FC = () => {
-  const { isOpen } = useAppSelector((state) => state.ChatSection);
   return (
     <div
       className={`uration-100 z-[1] flex  min-w-[360px] flex-col space-y-6 bg-slate-300/30  p-4 transition-all ease-linear dark:bg-slate-800/70`}
