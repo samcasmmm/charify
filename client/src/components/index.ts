@@ -5,8 +5,10 @@ import { Separator } from "@/components/ui/separator";
 
 import Sidebar from "@/components/sidebar/Sidebar";
 import Chats from "@/components/chats/Chats";
+import Conversation from "@/components/conversation/Conversation";
 
 import ThemeSwitcher from "@/components/common/ThemeSwitcher";
+
 import NameAvatar from "@/components/common/NameAvatar";
 import Icon from "@/components/common/Icon";
 import Avatar from "@/components/common/Avatar";
@@ -18,6 +20,7 @@ export {
   Separator,
   Sidebar,
   Chats,
+  Conversation,
   Avatar,
   ThemeSwitcher,
   NameAvatar,
