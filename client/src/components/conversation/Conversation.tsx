@@ -1,6 +1,3 @@
-import { Avatar } from "..";
-import { faker } from "@faker-js/faker";
-import Icon from "./../common/Icon";
 import ChatHeader from "./ChatHeader";
 
 const ChatMessages = () => {
