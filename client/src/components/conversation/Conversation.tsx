@@ -1,10 +1,13 @@
 import { Avatar } from "..";
 import { faker } from "@faker-js/faker";
 import Icon from "./../common/Icon";
+import { VideoCamera, Phone, MagnifyingGlass, CaretDown } from "phosphor-react";
 
 const ChatHeader = () => {
+  const iconArray = [VideoCamera, Phone, MagnifyingGlass, CaretDown];
+
   return (
-    <div className="h-[100px] w-full bg-slate-200 shadow-md dark:bg-slate-800">
+    <div className="w-full bg-slate-200 p-2 shadow-md dark:bg-slate-800">
       <div className="flex h-full w-full flex-row items-center justify-between">
         <div className="flex flex-row items-center space-x-2 pl-3">
           <Avatar src={faker.image.avatar()} isOnline />
@@ -14,7 +17,9 @@ const ChatHeader = () => {
           </div>
         </div>
         <div className="flex flex-row items-center space-x-3">
-          <Icon />
+          {iconArray.map((icon) => (
+            <Icon Icon={icon} size={24} className="hover:bg-white" />
+          ))}
         </div>
       </div>
     </div>
